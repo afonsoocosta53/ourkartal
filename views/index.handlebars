@@ -1,0 +1,122 @@
+<!-- HOME -->
+<div id="home">
+  <!-- container -->
+  <div class="container">
+    <!-- home wrap -->
+    <div class="home-wrap">
+      <!-- home slick -->
+      <div id="home-slick">
+        <!-- banner -->
+        <div class="banner banner-1">
+          <img src="./img/banner01.jpg" alt="">
+          <div class="banner-caption">
+            <button class="primary-btn">Aproveite agora!</button>
+          </div>
+        </div>
+        <!-- /banner -->
+
+        <!-- banner -->
+        <div class="banner banner-1">
+          <img src="./img/banner02.jpg" alt="">
+          <div class="banner-caption">
+            <button class="primary-btn">Aproveite agora!</button>
+          </div>
+        </div>
+        <!-- /banner -->
+
+        <!-- banner -->
+        <div class="banner banner-1">
+          <a href="#">
+            <img src="./img/banner03.jpg" alt="">
+          </a>
+          <div class="banner-caption">
+            <button class="primary-btn">Aproveite agora!</button>
+          </div>
+        </div>
+        <!-- /banner -->
+      </div>
+      <!-- /home slick -->
+    </div>
+    <!-- /home wrap -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /HOME -->
+
+<!-- section -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h2 class="title">Produtos em destaque</h2>
+        </div>
+      </div>
+      <!-- section title -->
+      <div class="col-md-12 col-sm-6 col-xs-6 section-categorias">
+        <div class="row">
+          <!-- Product Single -->
+          {{#each products}}
+            {{#if this}}
+              <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="product product-single">
+                  <div class="product-thumb">
+                    <img src="./img/{{this.imagem}}" alt="" width="174" height="230">
+                  </div>
+                  <div class="product-body">
+                    <i class="fa fa-viacoin"></i>
+                    <h3 class="product-price"> {{this.preco}}</h3>
+                    <h2 class="product-name">
+                      <a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a>
+                    </h2>
+                    <div class="product-btns">
+                      <button class="main-btn icon-btn"><a href="/products/add-to-wishlist/{{this.id_produto}}">
+                  <i class="fa fa-heart"></i></a>
+                </button>
+                      <button class="main-btn add-to-cart">
+                   <a href="/products/add-to-cart/{{this.id_produto}}"><i class="fa fa-shopping-cart "></i> CARRINHO</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+        <div class="row">
+          <!-- Product Single -->
+          {{#each ultimos}}
+            {{#if this}}
+              <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="product product-single">
+                  <div class="product-thumb">
+                    <img src="./img/{{this.imagem}}" alt="" width="174" height="230">
+                  </div>
+                  <div class="product-body">
+                    <i class="fa fa-viacoin"></i>
+                    <h3 class="product-price"> {{this.preco}}</h3>
+                    <h2 class="product-name">
+                      <a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a>
+                    </h2>
+                    <div class="product-btns">
+                      <button class="main-btn icon-btn"><a href="/products/add-to-wishlist/{{this.id_produto}}">
+                  <i class="fa fa-heart"></i></a>
+                </button>
+                      <button class="main-btn add-to-cart">
+                   <a href="/products/add-to-cart/{{this.id_produto}}"><i class="fa fa-shopping-cart "></i> CARRINHO</a></button>
+                      <!--<a href="/products/add-to-cart/{{this.id_produto}}">CARRINHO</a>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row -->
+</div>
+

@@ -1,0 +1,90 @@
+<div class="container registodevolucao1">
+    <div class="row">
+        <form class="form-horizontal">
+            <fieldset>
+
+
+
+                <!-- DEVOLUCAO -->
+                <div class="form-group">
+                    <legend class="legendaeditarproduto">Editar Perfil</legend>
+                </div>
+
+
+                <!-- Nome utilizador -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label nomeutilizadordevolver">Nome Próprio</label>
+                    <div class="col-md-6">
+                        <input id="company" name="company" type="text" placeholder="" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label nomeutilizadordevolver">Apelido</label>
+                    <div class="col-md-6">
+                        <input id="company" name="company" type="text" placeholder="" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+
+
+                <!-- SCRIPT para limitar número de caracteres -->
+
+                <script type="text/javascript" src="js/jquery.limiteCaracteres.js"></script>
+                <script type="text/javascript">
+                    $(function() {
+                        function limitaCaracteres(textarea, counter, limit) {
+                            $('.' + counter).text(limit + ' Caracteres restantes');
+                            var left;
+                            $('.' + textarea).on('keyup', function(e) {
+                                var qtdCaracteres = $(this).val().length;
+                                left = limit - qtdCaracteres;
+                                if (left <= 0) {
+                                    left = 0;
+                                    var textoAtual = $(this).val();
+                                    var novoTexto = '';
+                                    for (var n = 0; n < limit; n++) {
+                                        novoTexto += textoAtual[n];
+                                    }
+                                    $(this).val(novoTexto);
+                                }
+                                $('.' + counter).text(left + ' restantes');
+                            });
+                        }
+                        limitaCaracteres('descricaodevolucao', 'count4', 250);
+                    });
+                </script>
+
+
+
+
+                <!-- DESCRIÇÃO PROBLEMA -->
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label descricaoproblemadevolucao">Descrição</label>
+
+                    <div class="col-md-6">
+                        <textarea id="descricaodevolucao" class="form-control input-md descricaodevolucao" required=""> </textarea>
+                        <span class="count4"></span>
+                    </div>
+                </div>
+
+                <div id="uploadimagemuser" class="form-group">
+                    <label class="col-md-2 control-label">Imagens</label>
+                    <div class="col-md-6">
+                        <input type="file" name="imagem" id="imagem">
+                    </div>
+                </div>
+
+                <!-- BOTAO VALIDAR DEVOLUCAO-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" type="submit" class="validardevolucao">Gravar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

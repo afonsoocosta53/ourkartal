@@ -1,0 +1,395 @@
+
+.topoempregos {
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+.topoempregos h3{
+    margin: 3% 0 0 0;
+    color: #282828;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.14em;
+    line-height: 1;
+}
+
+.topoempregos h4 {
+    color: #282828;
+    font-size: 23px;
+}
+
+h4 {
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+.selecionarpesquisa {
+    text-align: center;
+    margin-bottom: 2%;
+    display: inline-block;
+    width: 100%;
+}
+
+
+.primeiraescolha {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1% ;
+}
+
+
+.procuraremprego {
+  border-radius: 10px;
+  background-color: #D4AF37;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 7px ;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#escolherdepartamento {
+    vertical-align: middle;
+    display: inline-block;
+    margin:  auto;
+    text-align: center;
+    width: 205px;
+    background: #FFF;
+    border-color: #D4AF37;
+    border-radius: 10px;
+    padding: 7px;
+    font-weight: bold;
+}
+
+.procuraremprego span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.procuraremprego span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.procuraremprego:hover span {
+  padding-right: 25px;
+}
+
+.procuraremprego:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+  
+
+
+#navigation .container2 {
+  position: relative;
+}
+
+
+.accordion {
+    background-color: #FFF;
+    color: #30323A;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align:  center;
+    transition: 1.5s;
+}
+
+
+.baseadopesquisa{
+    text-align: center;
+    color: #282828;
+    padding-top: 2%;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 1.2em;
+}
+
+
+.listaempregos {
+    padding-top: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 20%; /* se nao meter isto, o footer fica por baixo da div ???? pq*/
+     margin:0px auto;
+}
+
+
+.block-3 {
+    width: 22%;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+.blocoempregocima {
+    background-color: #D4AF37;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.emprego-block .blocoempregocima {
+    padding: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.blocoempregocima {
+    padding-top: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.emprego-block .testim-bottom-content {
+    height: 150px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.testim-bottom-content {
+    padding: 20px;
+    height: 135px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.testim-bottom-content {
+    background-color: rgb(235,239,242);
+}
+
+.fc-dark-gray {
+    color: rgb(174,174,174);
+}
+
+
+ .emprego-block  {
+    padding: 12px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.apply-now{
+    padding: 12px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 5px;
+}
+
+.border-radius-b-l {
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #D4AF37;
+   
+}
+
+
+.candidaturaemprego {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    position: relative;
+}
+
+.formulariocandidatura h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+.formulariocandidatura h1 {
+    text-transform: uppercase;
+}
+
+.formulariocandidatura h1 {
+  color: #282828;
+  margin: 10px 10px 10px;
+}
+
+
+/* Add a background color when the inputs get focus */
+.candidaturaemprego:focus {
+    background-color: #ddd;
+    outline: none;
+   
+}
+
+
+
+        /* FORMULARIO EMPREGOS */
+
+.signupbtnempregos {
+    background-color: #282828;
+    color: #FFF;
+    border: none;
+    margin: auto;
+    margin: 5% 17%;
+    margin-left: 13%;
+    margin-right: 10%;
+    border: none;
+    cursor: pointer;
+    /*   opacity: 0.9; */
+    /*   width: 100px; */
+    display: inline-block;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.cancelbtnempregos {
+    background-color: #282828;
+    color: #FFF;
+    border: none;
+    margin: auto;
+    margin: 5% 9%;
+    margin-left: 10%;
+    border: none;
+    cursor: pointer;
+    /*   opacity: 0.9; */
+    /*   width: 100px; */
+    display: inline-block;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+
+
+.signupbtnempregos:hover, .signupbtnempregos:focus, .cancelbtnempregos:hover, .cancelbtnempregos:focus {
+  color: #FFF;
+  background-color: #D4AF37;
+} 
+
+
+.input-filecsv {
+    cursor: pointer;
+    /*   opacity: 0.9; */
+    /*   width: 100px; */
+    display: inline-block;
+  padding: 10px 10px 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+
+/* Add padding to container elements */
+.formulariocandidatura {
+    padding: 2.5%;
+   
+}
+
+/* The Modal (background) */
+.modal1 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full height */
+
+    overflow: 100%; /* Enable scroll if needed */
+   /*  background-color: #282828; */
+    padding-top: 7%;
+    margin: auto;
+     
+}
+
+/* Modal Content/Box */
+.modal1-content {
+    background-color: #fefefe;
+    margin: auto auto auto auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 5px solid ;
+    width: 500px; /* Could be more or less, depending on screen size */
+    border-color: #D4AF37;
+    border-radius: 5%;
+    
+    
+}
+
+/* Style the horizontal ruler */
+.formulariocandidatura hr {
+    border: medium solid #D4AF37;
+    margin: auto;
+}
+ 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #30323A;
+    margin: auto;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+    margin: auto;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin: auto;
+}
+
+.nomeCompletoCandidatura{
+    margin: 10px 10px 0px 0px;
+}
+

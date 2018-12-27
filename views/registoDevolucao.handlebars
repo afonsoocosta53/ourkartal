@@ -1,0 +1,95 @@
+<div class="container registodevolucao1">
+    <div class="row">
+        <form class="form-horizontal" action="/user/devolucao" method="post">
+            <fieldset>
+                <!-- DEVOLUCAO -->
+                <div class="form-group">
+                    <legend class="legendaregistodevolucao">Pedido de Devolução</legend>
+                </div>
+
+
+                <!-- TABELA PRODUTO DEVOLVIDO-->
+                <div class="carrinhoDevolucao1">
+
+                    <div class="linhaprodutodevolucao">
+                        <div class="cadalinhaproduto4">
+
+                            <div class="imagemlinhaProduto4">
+                                <img src="../../img/{{product.imagem}}" alt="" class="imagemprodutodevolvido">
+                            </div>
+                            <ul class="infoitemdevolvido">
+                                <li class="infoitem100"> <a href=""> {{product.nome_produto}} </a></li>
+                                <li class="infoitem100"> VENDIDO POR: {{product.nome_vendedor}} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nome utilizador -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label nomeutilizadordevolver">Nome Utililizador</label>
+                    <div class="col-md-6">
+                        <input disabled id="nome_user" name="nome_user" placeholder="{{user.username}}" type="text" placeholder="" class="form-control input-md" required="">
+                    </div>
+                </div>
+                <!-- SCRIPT para limitar número de caracteres -->
+                <script type="text/javascript" src="js/jquery.limiteCaracteres.js"></script>
+                <script type="text/javascript">
+                    $(function() {
+                        function limitaCaracteres(textarea, counter, limit) {
+                            $('.' + counter).text(limit + ' Caracteres restantes');
+                            var left;
+                            $('.' + textarea).on('keyup', function(e) {
+                                var qtdCaracteres = $(this).val().length;
+                                left = limit - qtdCaracteres;
+                                if (left <= 0) {
+                                    left = 0;
+                                    var textoAtual = $(this).val();
+                                    var novoTexto = '';
+                                    for (var n = 0; n < limit; n++) {
+                                        novoTexto += textoAtual[n];
+                                    }
+                                    $(this).val(novoTexto);
+                                }
+                                $('.' + counter).text(left + ' restantes');
+                            });
+                        }
+                        limitaCaracteres('descricaodevolucao', 'count4', 200);
+                    });
+                </script>
+                <!-- MOTIVO DE DEVOLUCAO -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label motivodevolucao">Motivo Devolução</label>
+                    <div class="col-md-6">
+                        <select name="motivodevolucao" id="motivodevolucao" class="form-control">
+                            <option value="null">Selecione motivo de devolução</option>
+            				<option value="Produto decetivo relativamente à imagem">Produto decetivo relativamente à imagem</option>
+                			<option value="Produto decetivo relativamente à descrição">Produto decetivo relativamente à descrição</option>
+                			<option value="Mudei de opinião e já não pretendo este produto">Mudei de opinião e já não pretendo este produto</option>
+                			<option value="Erro no produto entregue">Erro no produto entregue</option>
+                            <option value="Produto recebido incompleto">Produto recebido incompleto</option>
+                            <option value="Produto defeituoso">Produto defeituoso</option>
+                            <option value="Encomenda danificada">Encomenda danificada</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="text" id="id_produto" name="id_produto" value="{{product.id_produto}}" style="display: none"></input>
+                <!-- DESCRIÇÃO PROBLEMA -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label descricaoproblemadevolucao">Descrição do Problema</label>
+                    <div class="col-md-6">
+                        <textarea id="descricaodevolucao" name="descricaoproblema" placeholder="Descrição do motivo" class="form-control input-md descricaodevolucao" required=""></textarea>
+                        <span class="count4"></span>
+                    </div>
+                </div>
+                <!-- BOTAO VALIDAR DEVOLUCAO-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" type="submit" class="validardevolucao">Validar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

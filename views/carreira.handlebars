@@ -1,0 +1,130 @@
+<!-- /BREADCRUMB -->
+
+<!-- COMEÇAR AQUIII ?????????????????-->
+
+<!-- section -->
+
+
+
+<div class="container ">
+    <div class="row">
+        <div class="container2">
+            <div class="topoempregos bg-light-gray">
+                <h3>Descobre o teu emprego...</h3>
+                <h4>Nós temos x empregos à tua espera!</h4>
+            </div>
+        </div>
+
+        <div class="listaempregos" style="display:block;">
+
+            <div class="emprego-block block-3">
+                <div class="blocoempregocima" name='top'>
+                    <div class="emprego-block-header">
+                        <h3 class=""> Engenheiro Informático </h3>
+                    </div>
+                </div>
+
+                <div class="testim-bottom-content fc-dark-gray" name='font-color' ">
+                                        <p><strong>Data de Publicação</strong></p>
+                                        <p class="margin-b-10 fc-grey-2017></div>
+                <p class="margin-b-10 fc-grey-2017"> 18 Abril 2018</p>
+
+
+
+                <div class="apply-now  border-radius-b-l">
+                    <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class=""> Candidatar-se <i class="fa fa-chevron-down"></i></a>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </div>
+
+
+
+</div>
+</div>
+
+
+
+<div id="id01" class="modal1 col-md-6">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+    <form class="modal1-content" action="/action_page.php">
+
+        <div class="formulariocandidatura">
+            <h1>Candidate-se</h1>
+
+            <hr>
+            <label for="nome"><b>Nome Completo</b></label>
+            <input class="candidaturaemprego" type="text" name="nomecompleto" required>
+
+            <label for="email"><b>Email</b></label>
+            <input class="candidaturaemprego" type="email" name="email" required>
+
+            <label for="telemovel"><b>Telemóvel</b></label>
+            <input class="candidaturaemprego" type="tel" name="telemovel" required>
+
+            <!-- File Button -->
+            <div class="control-group">
+                <label class="control-label" for="filebutton"> Ficheiro Curriculum</label>
+                <div class="controls">
+                    <input id="filebutton" name="filebutton" class="input-filecsv" type="file">
+                </div>
+            </div>
+
+            <!--   BOTAO UPLOAD CASO SEJA NECESSÁRIO
+
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" class="btn btn-info">Upload</button>
+  </div>
+</div>
+      -->
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtnempregos">Cancelar</button>
+                <button type="submit" class="signupbtnempregos">Submeter</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            }
+            else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<!-- ACABA AQUI ?????????????????????????????????????????????????? -->

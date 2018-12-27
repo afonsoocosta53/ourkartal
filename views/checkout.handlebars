@@ -1,0 +1,137 @@
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-wrapper chiller-theme toggled">
+                    <div class="section-title3">
+                        <h2 class="title">Checkout</h2>
+                    </div>
+                    <div class="page-content2">
+
+                        <div class="container registoproduto1">
+                            <div class="row">
+                                <form id="checkoutform" class="form-horizontal ">
+                                    <fieldset>
+                                        <div class="col-md-12">
+                                            <legend class="sumariocheckout">Detalhes de fatura</legend>
+
+                                        </div>
+                                        <div class="clearfix visible-md visible-lg"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label nomeutilizadordevolver">Nome Próprio</label>
+                                            <div class="col-md-6">
+                                                <input id="checkoutcampos" name="company" type="text" placeholder="{{user.name}}" class="form-control input-md" required="" disabled>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label nomeutilizadordevolver">Apelido</label>
+                                            <div class="col-md-6">
+                                                <input id="checkoutcampos" name="company" type="text" placeholder="{{user.lastName}}" class="form-control input-md" required="" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label moradacodigopostal">Morada</label>
+
+                                            <div class="col-md-6">
+                                                <textarea id="checkoutmorada"  class="form-control input-md descricaoproduto" required="" disabled>{{user.address2}}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label moradacodigopostal">Código-Postal</label>
+
+                                            <div class="col-md-6">
+                                                <input id="checkoutcampos" type="tel" maxlength="8" placeholder="{{user.postalCode}}" placeholder="" class="form-control input-md anuncio" required="" disabled>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="page-wrapper chiller-theme toggled">
+                    <div class="page-content2">
+                        <form id="checkout-form" class="clearfix">
+
+                            <div class="order-summary container clearfix">
+                                <div class="col-md-12">
+                                    <legend class="sumariocheckout">Resumo do pedido </legend>
+
+                                </div>
+                                <div class="carrinhoCompras1 carrinhoCompras2 container">
+                                    {{#each productsCarrinho}} {{#each this }}
+                                    <div class="linhaprodutocarrinho">
+                                        <div class="cadalinhaproduto">
+
+                                            <div class="imagemlinhaProduto">
+                                                <img src="../img/{{imagem}}" alt="" class="imagemprodutocarrinho">
+                                            </div>
+
+                                            <ul class="infoitem">
+                                                <li class="infoitem1"> <a href="/product/{{this.id_produto}}">{{nome_produto}}</a></li>
+                                                <li class="infoitem1"> VENDIDO POR: {{this.nome_vendedor}}</li>
+
+                                            </ul>
+
+                                            <div class="pricecarrinho">
+                                                <span class="precocarrinho"><i class="fa fa-viacoin"></i> {{preco}}</span>
+
+                                            </div>
+
+                                            <div class="botaoremovercarr">
+                                                <button type="button" class="botaoRemoverCarrinho">
+                        </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/each}} {{/each}}
+                                </div>
+                                <table class="shopping-cart-table table">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr id="totalcheckout" class="pull-right ">
+                                            <th>TOTAL</th>
+                                            <th colspan="2" class="total"><i class="fa fa-viacoin"></i> {{totalPrice}}</div </tr>
+                            </tfoot>
+                            </table>
+                            <div class="pull-right">
+                                <form action="/transaction/transaction" method="post">
+                                    <button type="submit"></button>
+                                </form>
+                                <form action="/transaction/transaction" method="post">
+                                    <button name="foo" value="upvote" class="primary-btn">Confirmar Pedido</button>
+                                </form>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
+</div>

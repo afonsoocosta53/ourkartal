@@ -1,0 +1,387 @@
+<div class="container registoproduto1">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <form class="form-horizontal" action="/products/editarProduto" enctype="multipart/form-data" method="post">
+                <fieldset>
+                    <!-- ANUNCIAR PRODUTO -->
+                    <div class="form-group">
+                        <legend class="legendaAnuncio">Editar Produto</legend>
+                        <label class="col-md-4 control-label">Título do anúncio</label>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Insira o titulo do seu anuncio" value="{{productinfo.nome_produto}}" name="nome_produto" class="form-control input-md anuncio" required="">
+                            <span class="count3"></span>
+                        </div>
+                    </div>
+                    <!-- SCRIPT para limitar número de caracteres -->
+                    <script type="text/javascript" src="js/jquery.limiteCaracteres.js"></script>
+                    <script type="text/javascript">
+                        $(function() {
+                            function limitaCaracteres(textarea, counter, limit) {
+                                $('.' + counter).text(limit + ' Caracteres restantes');
+                                var left;
+                                $('.' + textarea).on('keyup', function(e) {
+                                    var qtdCaracteres = $(this).val().length;
+                                    left = limit - qtdCaracteres;
+                                    if (left <= 0) {
+                                        left = 0;
+                                        var textoAtual = $(this).val();
+                                        var novoTexto = '';
+                                        for (var n = 0; n < limit; n++) {
+                                            novoTexto += textoAtual[n];
+                                        }
+                                        $(this).val(novoTexto);
+                                    }
+                                    $('.' + counter).text(left + ' restantes');
+                                });
+                            }
+                            limitaCaracteres('anuncio', 'count3', 50);
+                            limitaCaracteres('descricaoproduto', 'count4', 200);
+                        });
+                    </script>
+                    <!-- CATEGORIA -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Categoria</label>
+                        <div class="col-md-6">
+                            <select name="categoriaproduto" id="categoriaproduto" class="form-control">
+                            <option value="null">Escolha uma categoria</option>
+            				<option value="bebes">Bebé e Criança</option>
+                			<option value="livros">Livros</option>
+                			<option value="telemoveis">Telemóveis</option>
+                			<option value="eletronica">Eletrónicos e Tecnologia</option>
+                            <option value="informatica"> Informática e Acessórios</option>
+                            <option value="jogos">Jogos e Consolas</option>
+                            <option value="moda">Moda</option>
+                            <option value="casa">Móveis, Casa e Jardim</option>
+                            <option value="equipamentos">Equipamentos</option>
+                            <option value="musica">Música</option>
+                            <option value="desporto">Desporto</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                        </div>
+                    </div>
+                    <!-- SUBCATEGORIA -->
+                    <div class="form-group" id="bebes_group" name="subcategoria" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutobebes" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="roupa">Roupa</option>
+                			<option value="calcado">Calçado</option>
+                			<option value="dormir">Dormir</option>
+                			<option value="divertimento">Divertimento</option>
+                            <option value="refeicao">Refeição</option>
+                            <option value="seguranca">Segurança</option>
+                            <option value="passeio">Passeio</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="livros_group" name="subcategoria" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutolivros" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="universitarios e academicos">Universitários e Académicos</option>
+                			<option value="didaticos e escolares">Didáticos e Escolares</option>
+                			<option value="infantis">Infantis</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="telemovel_group" name="telemovel_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutotelemovel" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="telemoveis">Telemóveis</option>
+                			<option value="acessorios">Acessórios</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="tecnologia_group" name="tecnologia_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutotecnologia" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="camaras fotograficas">Câmaras Fotográficas</option>
+                			<option value="televisoes">Televisões</option>
+                            <option value="acessorios">Acessórios</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="informatica_group" name="informatica_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutoinformatica" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="monitores">Monitores</option>
+                			<option value="impressoras">Impressoras</option>
+                            <option value="calculadoras">Calculadoras</option>
+                            <option value="tablets"> Tablets</option>
+                            <option value="computadores fixos">Computadores Fixos</option>
+                            <option value="portateis">Portáteis</option>
+                            <option value="acessorios">Acessórios</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="jogos_group" name="jogos_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutojogos" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="playstation 4">PlayStation 4 </option>
+                			<option value="xbox one">Xbox One</option>
+                            <option value="wii u">Wii U</option>
+                            <option value="computador">Jogos Computador</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="moda_group" name="moda_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutomoda" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="roupa">Roupa</option>
+                			<option value="calcado"> Calçado</option>
+                            <option value="joias e relogios">Joias, Relógios e Bijuterias</option>
+                            <option value="malas e acessorios">Malas e Acessórios</option>
+                            <option value="saude e beleza">Saúde - Beleza</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="casa_group" name="casa_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutocasa" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="eletrodomesticos">Eletrodomésticos</option>
+                			<option value="moveis">Móveis</option>
+                            <option value="jardim e bricolage">Jardim e Bricolage</option>
+                            <option value="decoracao">Decoração</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="equipamentos_group" name="equipamentos_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutoequipamentos" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="ferramentas eletricas">Ferramentas Elétricas</option>
+                			<option value="ferramentas manuais"> Ferramentas Manuais</option>
+                            <option value="protecao e seguranca"> Proteção e Segurança</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="musica_group" name="musica_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutomusica" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="instrumentos musicais e equipamentos">Instrumentos musicais e Equipamentos</option>
+                			<option value="musicas gravadas">Músicas gravadas</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="desporto_group" name="desporto_group" style="display:none">
+                        <label class="col-md-4 control-label">Subcategoria</label>
+                        <div class="col-md-6">
+                            <select name="subcategoriaprodutodesporto" class="form-control">
+                            <option value="null">Escolha uma Subcategoria</option>
+            				<option value="exercicio e fitness">Exercício e Fitness</option>
+                			<option value="outdoor">Desporto outdoor</option>
+                            <option value="indoor">Desporto indoor</option>
+                            <option value="equipa">Desporto em equipa</option>
+                        </select>
+                        </div>
+                    </div>
+                    <!-- PREÇO -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Preço</label>
+                        <div class="col-md-1">
+                            <input type="" min="0" class="form-control inputpreco" value="{{productinfo.preco}}" name="preco" required="">
+                        </div>
+                        <div class="">
+                            <input type="checkbox" name="negociavel" class="negociavel ">
+                            <label class="col-md-1 control-label" name="negociavel_check">Negociável</label>
+                        </div>
+                    </div>
+                    <!-- DESCRIÇÃO PRODUTO -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Descrição</label>
+                        <div class="col-md-6">
+                            <textarea id="descricaoproduto" name="descricao" class="form-control input-md descricaoproduto" required="">{{productinfo.descricao}}</textarea>
+                            <span class="count4"></span>
+                        </div>
+                    </div>
+                    <!-- CATEGORIA -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Cidade</label>
+                        <div class="col-md-6">
+                            <select name="cidade" id="cidade" class="form-control">
+                            <option value="null">Escolha uma cidade</option>
+            				<option value="aveiro">Aveiro</option>
+                            <option value="beja">Beja</option>
+                            <option value="braga">Braga</option>
+                            <option value="bragança">Bragança</option>
+                            <option value="castelo branco">Castelo Branco</option>
+                            <option value="coimbra">Coimbra</option>
+                            <option value="evora">Evora</option>
+                            <option value="faro">Faro</option>
+                            <option value="guarda">Guarda</option>
+                            <option value="leiria">Leiria</option>
+                            <option value="lisboa">Lisboa</option>
+                            <option value="portalegre">Portalegre</option>
+                            <option value="porto">Porto</option>
+                            <option value="santarem">Santarem</option>
+                            <option value="setubal">Setubal</option>
+                            <option value="viana do castelo">Viana do Castelo</option>
+                            <option value="vila real">Vila Real</option>
+                           <option value="viseu">Viseu</option>
+                        </select>
+                        </div>
+                    </div>
+                    <!-- IMAGENS PRODUTO -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Imagens</label>
+                        <input type="file" name="imagem" id="imagem" multiple>
+                    </div>
+                    <!-- QUEBRA (LINHA DOURADA)/ DADOS ANUNCIANTE-->
+                    <div class="form-group">
+                        <legend class="dadosanuncianteregisto">Dados Anunciante</legend>
+                        <hr class="divisaoregistoproduto">
+                    </div>
+                    <!-- Nome Anunciante-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Nome Anunciante</label>
+                        <div class="col-md-6">
+                            <input disabled id="company" name="company" type="text" placeholder="{{user.username}}" class="form-control input-md">
+                        </div>
+                    </div>
+                    <input type="text" id="id_produto" name="id_produto" value="{{productinfo.id_produto}}" style="display: none"></input>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="submit" name="submit" type="submit" class="seguinteregistoproduto">Registar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+
+<script>
+    $(window).scroll(function() {
+        var height = $(window).scrollTop();
+        if (height > 100) {
+            $('.btn-scroll').fadeIn();
+        }
+        else {
+            $('.btn-scroll').fadeOut();
+        }
+    });
+    $(document).ready(function() {
+        $(".btn-scroll").click(function(event) {
+            event.preventDefault();
+            $("html, body").animate({
+                scrollTop: 0
+            }, "slow");
+            return false;
+        });
+
+        // IF PARA MOSTRAR SUBCATEGORIA
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "bebes") { //IGUAL CATEGORIA
+                $("#bebes_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#bebes_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "livros") { //IGUAL CATEGORIA
+                $("#livros_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#livros_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "telemoveis") { //IGUAL CATEGORIA
+                $("#telemovel_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#telemovel_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "eletronica") { //IGUAL CATEGORIA
+                $("#tecnologia_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#tecnologia_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "informatica") { //IGUAL CATEGORIA
+                $("#informatica_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#informatica_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "jogos") { //IGUAL CATEGORIA
+                $("#jogos_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#jogos_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "moda") { //IGUAL CATEGORIA
+                $("#moda_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#moda_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "casa") { //IGUAL CATEGORIA
+                $("#casa_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#casa_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "equipamentos") { //IGUAL CATEGORIA
+                $("#equipamentos_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#equipamentos_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "musica") { //IGUAL CATEGORIA
+                $("#musica_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#musica_group").hide()
+            }
+        });
+        $('#categoriaproduto').on('change', function() {
+            if ($(this).val() === "desporto") { //IGUAL CATEGORIA
+                $("#desporto_group").show() //SUBCATEGORIA A MOSTRAR
+            }
+            else {
+                $("#desporto_group").hide()
+            }
+        });
+
+
+
+    });
+</script>

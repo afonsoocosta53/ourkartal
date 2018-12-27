@@ -1,0 +1,66 @@
+.oque1 {
+
+    background: rgb(246, 246, 246);
+    width: 700px;
+    border: 2px solid rgb(200, 200, 200);
+    padding: 25px;
+    margin: 25px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+
+}
+
+
+
+
+
+
+.oque>h1 {
+
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+
+
+.vantagens {
+    text-align: center;
+    position: relative;
+
+}
+
+
+.vantagens1 {
+
+    background: rgb(246, 246, 246);
+    width: 700px;
+    border: 2px solid rgb(200, 200, 200);
+    padding: 25px;
+    margin: 25px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+}
+
+.website {
+    font-weight: bold;
+}
+
+.video1 {
+
+    width: 600px;
+    padding: 25px;
+    text-align: center;
+    margin: 0 auto;
+
+
+}
+
+.video {
+
+    text-align: center;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    
+
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+        <h1>Wallet</h1>
+
+        <h2 id="instructor"></h2>
+        <pre id="coinbase"></pre>
+        <pre id="balance"></pre>
+        <label for="name" class="col-lg-2 control-label">Conta: </label><br>
+        <input id="conta" type="text">
+        <button id="button">Balanço</button>
+        <br><br>
+        <label for="name" class="col-lg-2 control-label">Conta para transferir: </label><br>
+        <input id="conta1" type="text">
+        <br><br>
+        <label for="name" class="col-lg-2 control-label">Valor a transferir: </label><br>
+        <input id="valor" type="number">
+        <br><br>
+        <button id="button1">Transferir</button>
+         <br/> 
+         <pre id="out1"></pre>  
+         <pre id="out2"></pre> 
+    </div>
+
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+    <script>    
+        var out1 = document.getElementById('out1');
+        var out2 = document.getElementById('out2');
+        var coinbase = document.getElementById('coinbase');
+        var balance = document.getElementById('balance');
+        var conta1 = document.getElementById(conta1);
+        var valor = document.getElementById(valor);
+        var value
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+            
+        } else {
+            // set the provider you want from Web3.providers
+           
+        }
+
+        var testecoinContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"INITIAL_SUPPLY","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]);
+          var testecoin = testecoinContract.at('0x8f9343f23d74f953f6de7558b2015d5a5768d669');
+          console.log(testecoin);
+
+        web3.eth.getAccounts(function(e,accounts){
+                var first = accounts[0];
+                console.log(first);
+                coinbase.innerHTML = "Conta : " + first;
+
+                testecoin.balanceOf.call(first,function(err, res){
+               balance.innerHTML = "Balanço : "  + res;
+               
+               
+           })
+            });
+           
+            button:addEventListener('click',function(){
+                    out2.innerHTML =  document.getElementById("conta1").value;
+            });
+            
+            button1.addEventListener('click', function () {
+                var input = document.getElementById("valor").value;
+                var value = parseInt(input);
+                var input1 = document.getElementById("conta").value;
+                var adress =  document.getElementById("conta1").value;
+
+               testecoin.transfer(adress,value,(err, res) => {
+               out1.innerHTML = "Transferencia Feita" + input1;
+           });});  
+            
+
+          
+    </script>
+
+</body>
+</html>

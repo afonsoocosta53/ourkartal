@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div class="row">
+        {{#ifCond productsCarrinho '===' null}}
+        <div class="form-group">
+            <legend class="legendaCarrinhoCompras">Carrinho Vazio</legend>
+        </div>
+        <div class="botoescarrinho1">
+            <a href="/" class="continuarComprasCarrinho1" onclick="">Continuar Compras</a>
+
+        </div>
+        {{else}}
+        <div class="carrinhoCompras">
+
+            <!-- LEGENDA ALLCATEGORY -->
+            <div class="form-group">
+                <legend class="legendaCarrinhoCompras">Carrinho Compras</legend>
+            </div>
+
+            <div class="carrinhoCompras1">
+                {{#each productsCarrinho}} {{#each this }}
+                <div class="linhaprodutocarrinho">
+                    <div class="cadalinhaproduto">
+
+                        <div class="imagemlinhaProduto">
+                            <img src="../img/{{imagem}}" alt="" class="imagemprodutocarrinho">
+                        </div>
+
+                        <ul class="infoitem">
+                            <li class="infoitem1"> <a href="/product/{{this.id_produto}}">{{nome_produto}}</a></li>
+                            <li class="infoitem1"> VENDIDO POR: {{this.nome_vendedor}}</li>
+
+                        </ul>
+
+                        <div class="pricecarrinho">
+                            <span class="precocarrinho"><i class="fa fa-viacoin"></i> {{preco}}</span>
+
+                        </div>
+
+                        <div class="botaoremovercarr">
+                            <button type="button" class="botaoRemoverCarrinho">
+                            <a class="letrasbotaoremover" href="/products/remove-cart/{{this.id_produto}}">Remover</a>
+                        </button>
+
+                        </div>
+                    </div>
+                </div>
+                {{/each}} {{/each}}
+
+                <div class="totalcarrinhosetor">
+                    <div class="totalcarrinhosetor1 setore">
+
+                        <div class="precototalcarrinho"><i class="fa fa-viacoin"></i> {{totalPrice}}</div>
+                        <div class="labelcarrinho"> TOTAL</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="botoescarrinho">
+                <a href="/products/clear-cart/" class="limparComprasCarrinho" onclick="">Limpar Compras</a>
+
+                <a class="checkoutCarrinho" href="/transaction/checkout">Checkout</a>
+                <a href="/" class="continuarComprasCarrinho" onclick="">Continuar Compras</a>
+                
+            </div>
+
+
+
+        </div>
+        {{/ifCond}}
+    </div>
+</div>

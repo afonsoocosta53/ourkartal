@@ -1,0 +1,106 @@
+<div class="container centroajuda1">
+        <div class="row">
+            <form class="form-horizontal">
+                <fieldset>
+
+                    <!-- Centro de Ajuda -->
+                    <div class="form-group">
+                        <legend class="legendaformulariocontacto">Formulário de Contacto</legend>
+                        
+                        <label class="col-md-4 control-label">Endereço email</label>
+
+                        <div class="col-md-6">
+                            <input type="text" placeholder="" class="form-control input-md emailcontactar" required="">
+                        </div>
+                    </div>
+
+                    <!-- Nome  -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Nome Completo</label>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="" class="form-control input-md nomecontactar" required="">
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Motivo -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Motivo</label>
+                        <div class="col-md-6">
+
+                            <select name="" id="" class="form-control">
+                            <option value="null">Selecione o motivo</option>
+            				<option value="">Questão sobre conta</option>
+                			<option value="">Questão ao compra ou vender</option>
+                			<option value="">Questão sobre sistema de crédito</option>
+                			<option value="">Questão técnica</option>
+                            <option value="">Reportar fraude/comportamento inapropriado</option>
+                            <option value="">Sugestão</option>
+                            <option value="">Outros</option>
+                        </select>
+                        </div>
+                    </div>
+                    
+
+                    <!-- DESCRIÇÃO -->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Mensagem</label>
+
+                        <div class="col-md-6">
+                            <textarea id="descricaocontacto" class="form-control input-md descricaocontacto" required=""> </textarea>
+                            <span class="count6"></span>
+                        </div>
+                    </div>
+
+                    
+                     <!-- SCRIPT para limitar número de caracteres -->
+
+                    <script type="text/javascript" src="js/jquery.limiteCaracteres.js"></script>
+                    <script type="text/javascript">
+                        $(function() {
+                            function limitaCaracteres(textarea, counter, limit) {
+                                $('.' + counter).text(limit + ' Caracteres restantes');
+                                var left;
+                                $('.' + textarea).on('keyup', function(e) {
+                                    var qtdCaracteres = $(this).val().length;
+                                    left = limit - qtdCaracteres;
+                                    if (left <= 0) {
+                                        left = 0;
+                                        var textoAtual = $(this).val();
+                                        var novoTexto = '';
+                                        for (var n = 0; n < limit; n++) {
+                                            novoTexto += textoAtual[n];
+                                        }
+                                        $(this).val(novoTexto);
+                                    }
+                                    $('.' + counter).text(left + ' restantes');
+                                });
+                            }
+
+                            limitaCaracteres('descricaoproduto', 'count6', 400);
+                        });
+                    </script>
+                    
+                    
+                      <!-- File Button --> 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Anexos</label>
+                            <div class="col-md-6">
+                                <input id="filebutton" name="filebutton" class="input-filecsv" type="file">
+                            </div>
+                   </div>
+
+                    <!-- Botão Enviar -->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="submit" name="submit" type="submit" class="enviarpedidocontacto">Enviar</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>

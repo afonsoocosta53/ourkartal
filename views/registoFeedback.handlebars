@@ -1,0 +1,121 @@
+<div class="container registodevolucao1">
+    <div class="row">
+        <form class="form-horizontal" action="/user/novoFeedback" method="post">
+            <fieldset>
+
+
+
+                <!-- DEVOLUCAO -->
+                <div class="form-group">
+                    <legend class="legendaeditarproduto">Fazer Avaliação</legend>
+                </div>
+
+                <p class="text-center">O seu email não será publicado.</p>
+                <br>
+                <!-- Nome utilizador -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label nomeutilizadordevolver">Nome</label>
+                    <div class="col-md-6">
+                        <input disabled id="company" name="name" type="text" placeholder="" class="form-control input-md" value="{{user.name}}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label nomeutilizadordevolver">Email</label>
+                    <div class="col-md-6">
+                        <input disabled id="company" name="company" type="email" placeholder="" class="form-control input-md" value="{{user.email}}">
+                    </div>
+                </div>
+                <!-- SCRIPT para limitar número de caracteres -->
+
+                <script type="text/javascript" src="js/jquery.limiteCaracteres.js"></script>
+                <script type="text/javascript">
+                    $(function() {
+                        function limitaCaracteres(textarea, counter, limit) {
+                            $('.' + counter).text(limit + ' Caracteres restantes');
+                            var left;
+                            $('.' + textarea).on('keyup', function(e) {
+                                var qtdCaracteres = $(this).val().length;
+                                left = limit - qtdCaracteres;
+                                if (left <= 0) {
+                                    left = 0;
+                                    var textoAtual = $(this).val();
+                                    var novoTexto = '';
+                                    for (var n = 0; n < limit; n++) {
+                                        novoTexto += textoAtual[n];
+                                    }
+                                    $(this).val(novoTexto);
+                                }
+                                $('.' + counter).text(left + ' restantes');
+                            });
+                        }
+                        limitaCaracteres('descricaodevolucao', 'count4', 250);
+                    });
+                </script>
+                <!-- DESCRIÇÃO PROBLEMA -->
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label descricaoproblemadevolucao">Breve Avaliação</label>
+
+                    <div class="col-md-6">
+                        <textarea id="descricaodevolucao" class="form-control input-md descricaodevolucao" name="comentario"> </textarea>
+                        <span class="count4"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label descricaoproblemadevolucao">Avaliação</label>
+
+                    <div class="col-md-6">
+                        <div class="avaliacaostars">
+                            <div class="input-rating">
+                                <div class="stars">
+                                    <input type="radio" id="star5" name="rating1" value="5" /><label for="star5"></label>
+                                    <input type="radio" id="star4" name="rating2" value="4" /><label for="star4"></label>
+                                    <input type="radio" id="star3" name="rating3" value="3" /><label for="star3"></label>
+                                    <input type="radio" id="star2" name="rating4" value="2" /><label for="star2"></label>
+                                    <input type="radio" id="star1" name="rating5" value="1" /><label for="star1"></label>
+                                    <input type="text" id="rating_input" name="rating_input" value="0" style="display: none"></input>
+                                    <input type="text" id="id_vendedor" name="id_vendedor" value="{{id_vendedor}}" style="display: none"></input>
+                                    <input type="text" id="id_produto" name="id_produto" value="{{id_produto}}" style="display: none"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOTAO VALIDAR DEVOLUCAO-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" type="submit" class="validardevolucao">Submeter</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#star5").click(function() {
+            $("#rating_input").val("5");
+        });
+        $("#star4").click(function() {
+            $("#rating_input").val("4");
+        });
+        $("#star3").click(function() {
+            $("#rating_input").val("3");
+        });
+        $("#star2").click(function() {
+            $("#rating_input").val("2");
+        });
+        $("#star1").click(function() {
+            $("#rating_input").val("1");
+        });
+    });
+</script>

@@ -1,0 +1,220 @@
+<div class="col-md-9">
+
+    <div class="page-wrapper chiller-theme toggled">
+        <div class="section-title2">
+            <h2 class="title">Vendas Pendentes</h2>
+        </div>
+        <main class="page-content2">
+
+
+            <div class="CPaseguir">
+                <!-- STORE -->
+                <div id="store2">
+                    <!-- row -->
+                    <div class="row">
+
+                        <!-- Product Single -->
+                        {{#each primeira_fila}} {{#if this}}
+                        <div class="col-md-12 col-sm-6 col-xs-6">
+                            <div class="product product-single-linha">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-thumb ">
+                                        <img src="../../img/{{this.imagem}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-body-p2">
+                                        <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                        <i class="fa fa-viacoin"></i>
+                                        <h3 class="product-price"> {{this.preco}} </h3>
+                                        <h4 class="vendauser">Comprador: <span class="classvendedor"><a href="#">{{this.nome_vendedor}}</a></span></h4>
+                                        {{#ifCond this.productStatus '===' "venda"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">À venda</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "enviado"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Enviado</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "pago"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Pago</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "pago_empresa"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Paga a empresa</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "devolucao_iniciada"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Devolução iniciada</span></h4>
+                                        {{/ifCond}}
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-btns-p2">
+                                        <div class="devolverbuttons">
+                                            {{#ifCond this.productStatus '===' "venda"}}
+                                            <form action="/user/removerProduto" method="post">
+                                                <input type="text" id="id_produto" name="id_produto" value="{{this.id_produto}}" style="display: none"></input>
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>Remover</button>
+                                            </form> {{/ifCond}} {{#ifCond this.productStatus '===' "enviado"}} {{/ifCond}} {{#ifCond this.productStatus '===' "pago"}} {{/ifCond}} {{#ifCond this.productStatus '===' "pago_empresa"}}
+                                            <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Paga a empresa</span></h4>
+                                            {{/ifCond}} {{#ifCond this.productStatus '===' "devolucao_iniciada"}}
+                                            <form action="/user/confirmardevolucao" method="post">
+                                                <input type="text" id="id_produto" name="id_produto" value="{{this.id_produto}}" style="display: none"></input>
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-check"></i> Confirmar Devolucao</button>
+                                            </form>
+                                            {{/ifCond}}
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix visible-sm visible-xs"></div>
+                                <div class="clearfix visible-md visible-lg"></div>
+                            </div>
+                        </div>
+                        {{/if}} {{/each}}
+                        <!-- /Product Single -->
+
+                        <div class="clearfix visible-md visible-lg"></div>
+
+                        <!-- Product Single -->
+                        {{#each segunda_fila}} {{#if this}}
+                        <div class="col-md-12 col-sm-6 col-xs-6">
+                            <div class="product product-single-linha">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-thumb ">
+                                        <img src="../../img/{{this.imagem}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-body-p2">
+                                        <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                        <i class="fa fa-viacoin"></i>
+                                        <h3 class="product-price"> {{this.preco}} </h3>
+                                        <h4 class="vendauser">Comprador: <span class="classvendedor"><a href="#">bmvcosta</a></span></h4>
+                                        {{#ifCond this.productStatus '===' "venda"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">À venda</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "enviado"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Enviado</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "pago"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Pago</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "pago_empresa"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Paga a empresa</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "devolucao_iniciada"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Devolução iniciada</span></h4>
+                                        {{/ifCond}}
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-btns-p">
+                                        <div class="devolverbuttons">
+                                            {{#ifCond this.productStatus '===' "venda"}}
+                                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-envelope"></i>Remover</button> {{/ifCond}} {{#ifCond this.productStatus '===' "enviado"}} {{/ifCond}} {{#ifCond this.productStatus '===' "pago"}}
+                                            {{/ifCond}} {{#ifCond this.productStatus '===' "pago_empresa"}}
+                                            <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Paga a empresa</span></h4>
+                                            {{/ifCond}} {{#ifCond this.productStatus '===' "devolucao_iniciada"}}
+                                            <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Devolução iniciada</span></h4>
+                                            {{/ifCond}}
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix visible-sm visible-xs"></div>
+                                <div class="clearfix visible-md visible-lg"></div>
+                            </div>
+                        </div>
+                        {{/if}} {{/each}}
+                        <!-- /Product Single -->
+
+                        <div class="clearfix visible-sm visible-xs"></div>
+                        <div class="clearfix visible-md visible-lg"></div>
+
+                        <!-- Product Single -->
+                        {{#each terceira_fila}} {{#if this}}
+                        <div class="col-md-12 col-sm-6 col-xs-6">
+                            <div class="product product-single-linha">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-thumb ">
+                                        <img src="../../img/{{this.imagem}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-body-p2">
+                                        <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                        <i class="fa fa-viacoin"></i>
+                                        <h3 class="product-price"> {{this.preco}} </h3>
+                                        <h4 class="vendauser">Comprador: <span class="classvendedor"><a href="#">bmvcosta</a></span></h4>
+                                        {{#ifCond this.productStatus '===' "venda"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">À venda</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "enviado"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Enviado</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "pago"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Pago</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "pago_empresa"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Paga a empresa</span></h4>
+                                        {{/ifCond}} {{#ifCond this.productStatus '===' "devolucao_iniciada"}}
+                                        <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Devolução iniciada</span></h4>
+                                        {{/ifCond}}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="product-btns-p">
+                                        <div class="devolverbuttons">
+                                            {{#ifCond this.productStatus '===' "venda"}}
+                                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-envelope"></i>Remover</button> {{/ifCond}} {{#ifCond this.productStatus '===' "enviado"}} {{/ifCond}} {{#ifCond this.productStatus '===' "pago"}}
+                                            {{/ifCond}} {{#ifCond this.productStatus '===' "pago_empresa"}}
+                                            <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Paga a empresa</span></h4>
+                                            {{/ifCond}} {{#ifCond this.productStatus '===' "devolucao_iniciada"}}
+                                            <h4 class="estadoEncomenda">Estado da encomenda: <span class="devolvido">Devolução iniciada</span></h4>
+                                            {{/ifCond}}
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix visible-sm visible-xs"></div>
+                                <div class="clearfix visible-md visible-lg"></div>
+                            </div>
+                        </div>
+                        {{/if}} {{/each}}
+                        <!-- /Product Single -->
+
+
+                        <div class="clearfix visible-sm visible-xs"></div>
+                        <div class="clearfix visible-md visible-lg"></div>
+
+
+
+
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /STORE -->
+                <!-- store bottom filter -->
+                <div class="store-filter-bottom clearfix">
+                    <div class="pull-left">
+                        <ul class="store-pages">
+                            <li><span class="text-uppercase">Página:</span></li>
+                            {{#each pages}}
+                            <li class="active"><a href="/products/{{this}}">{{this}}</a></li>
+                            {{/each}}
+                            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <div class="page-filter">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /store bottom filter -->
+            </div>
+
+
+
+        </main>
+
+
+    </div>
+
+</div>
+</div>
+</div>

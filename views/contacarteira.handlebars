@@ -1,0 +1,264 @@
+<div class="col-md-9">
+
+    <div class="page-wrapper chiller-theme toggled">
+        <div class="section-title2">
+            <h2 class="title">Carteira pessoal</h2>
+        </div>
+        <main class="page-content3">
+
+            <div class="row">
+                <div class="primeirafila">
+                    <div class="col-md-6">
+                        <div class="carteirasaldo">
+                            <div class="carteira">
+                                <img src="../../img/wallet2.png">
+                            </div>
+
+                            <div class="saldo">
+                                <h2>Saldo Atual</h2>
+                                <h1><i class="fa fa-viacoin"></i>{{balance}}</h1>
+
+                            </div>
+
+                        </div>
+
+
+                        <input id="vendas" value="{{total_gasto}}" style="display:none">
+                        <input id="compras" value="{{total_recebido}}" style="display:none">
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="graficos">
+
+
+                            <div class="card">
+
+
+                                <!-- Canvas for Chart.js -->
+                                <canvas id="canvas" height="200"></canvas>
+
+                                <!-- Custom tooltip canvas -->
+                                <canvas id="tooltip-canvas" width="150" height="100"></canvas>
+
+                                <!-- Reload button -->
+                                <button type="button" id="reload" class="btn-reload">
+    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71.4 61.2"><style>.st0{fill:#AAAAAA;}</style><title>59 all</title><path class="st0" d="M57.6 0h8.7c2.8 0 5 2.2 5 5v51.1c0 2.8-2.2 5-5 5h-8.7c-2.8 0-5-2.2-5-5V5c0-2.7 2.2-5 5-5zM5 24.9h8.7c2.8 0 5 2.2 5 5v26.2c0 2.8-2.2 5-5 5H5c-2.8 0-5-2.2-5-5V29.9c0-2.8 2.2-5 5-5zM31.4 17.8h8.7c2.8 0 5 2.2 5 5v33.4c0 2.8-2.2 5-5 5h-8.7c-2.8 0-5-2.2-5-5V22.8c0-2.8 2.3-5 5-5z"/></svg>
+  </button>
+                            </div>
+                            <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+                            <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js'></script>
+                            <script>
+                                var vendas = "{{total_recebido}}";
+                                var vendas2 = parseInt(vendas);
+                                var compras = "{{total_gasto}}";
+                                var compras2 = parseInt(compras);
+                                var canvas = document.getElementById("canvas");
+                                var tooltipCanvas = document.getElementById("tooltip-canvas");
+
+                                var gradientGold = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+                                gradientGold.addColorStop(0, '#D4AF37');
+                                gradientGold.addColorStop(1, '#D4AF37');
+
+                                var gradientGrey = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+                                gradientGrey.addColorStop(0, '#282828');
+                                gradientGrey.addColorStop(1, '#282828');
+
+                                window.arcSpacing = 0.15;
+                                window.segmentHovered = false;
+
+                                function textInCenter(value, label) {
+                                    var ctx = tooltipCanvas.getContext('2d');
+                                    ctx.clearRect(0, 0, tooltipCanvas.width, tooltipCanvas.height)
+
+                                    ctx.restore();
+
+                                    // Draw value
+                                    ctx.fillStyle = '#333333';
+                                    ctx.font = '24px sans-serif';
+                                    ctx.textBaseline = 'middle';
+
+                                    // Define text position
+                                    var textPosition = {
+                                        x: Math.round((tooltipCanvas.width - ctx.measureText(value).width) / 2),
+                                        y: tooltipCanvas.height / 2,
+                                    };
+
+                                    ctx.fillText(value, textPosition.x, textPosition.y);
+
+                                    // Draw label
+                                    ctx.fillStyle = '#AAAAAA';
+                                    ctx.font = '8px sans-serif';
+
+                                    // Define text position
+                                    var labelTextPosition = {
+                                        x: Math.round((tooltipCanvas.width - ctx.measureText(label).width) / 2),
+                                        y: tooltipCanvas.height / 2,
+                                    };
+
+                                    ctx.fillText(label, labelTextPosition.x, labelTextPosition.y - 20);
+                                    ctx.save();
+                                }
+
+                                Chart.elements.Arc.prototype.draw = function() {
+                                    var ctx = this._chart.ctx;
+                                    var vm = this._view;
+                                    var sA = vm.startAngle;
+                                    var eA = vm.endAngle;
+
+                                    ctx.beginPath();
+                                    ctx.arc(vm.x, vm.y, vm.outerRadius, sA + window.arcSpacing, eA - window.arcSpacing);
+                                    ctx.strokeStyle = vm.backgroundColor;
+                                    ctx.lineWidth = vm.borderWidth;
+                                    ctx.lineCap = 'round';
+                                    ctx.stroke();
+                                    ctx.closePath();
+                                };
+
+                                var config = {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ['Vendas', 'Compras'],
+                                        datasets: [{
+                                            data: [vendas2, compras2],
+                                            backgroundColor: [
+                                                gradientGold,
+                                                gradientGrey,
+                                            ],
+                                        }]
+                                    },
+                                    options: {
+                                        cutoutPercentage: 80,
+                                        elements: {
+                                            arc: {
+                                                borderWidth: 12,
+                                            },
+                                        },
+                                        legend: {
+                                            display: false,
+                                        },
+                                        animation: {
+                                            onComplete: function(animation) {
+                                                if (!window.segmentHovered) {
+                                                    var value = this.config.data.datasets[0].data.reduce(function(a, b) {
+                                                        return (-b) - (a);
+                                                    }, 0);
+                                                    var label = 'B A L A N Ç O';
+
+                                                    textInCenter(value, label);
+                                                }
+                                            },
+                                        },
+                                        tooltips: {
+                                            enabled: false,
+                                            custom: function(tooltip) {
+                                                if (tooltip.body) {
+                                                    var line = tooltip.body[0].lines[0],
+                                                        parts = line.split(': ');
+                                                    textInCenter(parts[1], parts[0].split('').join(' ').toUpperCase());
+                                                    window.segmentHovered = true;
+                                                }
+                                                else {
+                                                    window.segmentHovered = false;
+                                                }
+                                            },
+                                        },
+                                    },
+                                };
+
+                                window.chart = new Chart(canvas, config);
+
+                                function addData(chart, label, data) {
+                                    chart.data.labels.push(label);
+                                    chart.data.datasets.forEach((dataset) => {
+                                        dataset.data.push(data);
+                                    });
+                                    chart.update();
+                                }
+
+
+
+                                //# sourceURL=pen.js
+                            </script>
+
+                            <div class="descricaografs">
+                                <h2>Valores Movimentados</h2>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12">
+                <legend class="titulotransacoes">Histórico de transações</legend>
+
+            </div>
+            <div class="col-md-12">
+                <div class="tabelatransacoes">
+                    <div class="col-md-12">
+                        <table class="table custab">
+                            <thead>
+                                <tr>
+                                    <th class="text-center tdcontador">#</th>
+                                    <th class="text-center tdprodutonome">Produto</th>
+                                    <th class="text-center tdsellcompra">Comprador/Vendedor</th>
+                                    <th class="text-center tdvalor">Valor</th>
+                                </tr>
+                            </thead>
+                            {{#each tableproduts}} {{#ifCond this.nome_comprador '===' ../user.username}}
+                            <tr id="compratransacoes">
+                                <td class="tdcontador">{{this.id_produto}}</td>
+                                <td class="tdprodutonome">{{this.nome_produto}}</td>
+                                {{#ifCond this.nome_comprador '===' ../user.username}}
+                                <td class="tdsellcompra"><a href="#">{{this.nome_vendedor}}</a></td>
+                                {{else}}
+                                <td class="tdsellcompra"><a href="#">{{this.nome_comprador}}</a></td>
+                                {{/ifCond}}
+                                <td class="tdvalor"><i class="fa fa-viacoin"></i>{{this.preco}}</td>
+                            </tr>
+                            {{else}}
+                            <tr id="vendatransacoes">
+                                <td class="tdcontador">{{this.id_produto}}</td>
+                                <td class="tdprodutonome">{{this.nome_produto}}</td>
+                                {{#ifCond this.nome_comprador '===' ../user.username}}
+                                <td class="tdsellcompra"><a href="#">{{this.nome_vendedor}}</a></td>
+                                {{else}}
+                                <td class="tdsellcompra"><a href="#">{{this.nome_comprador}}</a></td>
+                                {{/ifCond}}
+                                <td class="tdvalor"><i class="fa fa-viacoin"></i>{{this.preco}}</td>
+                            </tr>
+                            {{/ifCond}} {{/each}}
+                        </table>
+                        <div class="paginacaotransacoes">
+                            <ul class="store-pages">
+                                <li><span class="text-uppercase">Página:</span></li>
+                                {{#each pages}}
+                                <li><a href="/user/carteira/1">{{this}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </main>
+
+
+    </div>
+
+</div>
+</div>
+</div>

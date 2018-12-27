@@ -1,0 +1,235 @@
+<!-- section -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <span>Perfil de {{vendedor.username}}</span></div>
+                <div class="panel-body2">
+                    <div class="col-md-3 col-xs-12 col-sm-6 col-lg-3">
+                        <img alt="User Pic" src="../../img/{{vendedor.imagem}}" id="profile-image1" class="img-circle img-responsive">
+                    </div>
+                    <div class="col-md-7 col-xs-12 col-sm-6 col-lg-7">
+                        <div class="leftprofile">
+                            <div class="container">
+                                <h2>{{vendedor.name}} {{vendedor.lastName}}</h2>
+                                <p class="descricaouser">Breve descrição com limite de tipo 100 caracteres ou algo assim Breve descrição com limite de tipo 100 caracteres ou algo assim Breve descrição com limite de tipo 200 caracteres ou algo assim.</p>
+                            </div>
+                            <hr>
+                            <div class="col-md-6">
+                                <ul class="container details">
+                                    <li>
+                                        <p><i class="fa fa-globe"></i> {{vendedor.country}}</p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fa fa-user"></i> Registado desde {{vendedor.accCreatedOn}}</p>
+                                    </li>
+                                    <li>
+                                        <p><i class="fa fa-star"></i> <a href="#">{{vendedor.numFeedbacks}}</a> Avaliações sobre {{vendedor.username}}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="rating-block">
+                                    <h4>Avaliação média</h4>
+                                    <h2 class="bold padding-bottom-7">{{vendedor.rating}} <small>/ 5</small></h2>
+                                    {{#ifCond vendedor.rating '===' 0}}
+                                        <div class="product-rating2">
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                        </div>
+                                    {{/ifCond}}
+                                    {{#ifCond vendedor.rating '===' 1}}
+                                        <div class="product-rating2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                        </div>
+                                    {{/ifCond}}
+                                    {{#ifCond vendedor.rating '===' 2}}
+                                        <div class="product-rating2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                        </div>
+                                    {{/ifCond}}
+                                    {{#ifCond vendedor.rating '===' 3}}
+                                        <div class="product-rating2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                        </div>
+                                    {{/ifCond}}
+                                    {{#ifCond vendedor.rating '===' 4}}
+                                        <div class="product-rating2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o empty"></i>
+                                        </div>
+                                    {{/ifCond}}
+                                    {{#ifCond vendedor.rating '===' 5}}
+                                        <div class="product-rating2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    {{/ifCond}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#ifCond user.accountNumber '===' vendedor.accountNumber}}
+                    <div class="col-md-2 col-xs-12 col-sm-6 col-lg-2">
+                        <div class="profile-userbuttons2">
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-pencil"></i> Editar Perfil</button>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /container -->
+
+<!-- /section -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="produtosrecomendados">
+                    <h2 class="title">Produtos à venda de {{vendedor.username}}</h2>
+                </div>
+            </div>
+            <!-- section title -->
+            {{#each produtos}}
+                {{#if this}}
+                    <!-- Product Single -->
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product product-single">
+                            <div class="product-thumb">
+                                <img src="../../img/{{this.imagem}}" alt="" width="200" height="220">
+                            </div>
+                            <div class="product-body-p">
+                                <i class="fa fa-viacoin"></i>
+                                <h3 class="product-price">{{this.preco}} </h3>
+                                <h2 class="product-name"><a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a></h2>
+                                <div class="product-btns-p">
+                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                    <button class="main-btn add-to-cart"><i class="fa fa-shopping-cart"></i> <a href="/products/add-to-cart/{{this.id_produto}}">CARRINHO</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+            <div class="clearfix visible-md visible-lg"></div>
+            <div class="clearfix visible-sm visible-xs"></div>
+            <!-- /Product Single -->
+        </div>
+    </div>
+</div>
+<div class="product-tab">
+    <div class="tab-content">
+        <div class="container">
+            <div class="tituloavaliacoes">
+                <h2 class="title">Avaliações a {{vendedor.username}}</h2>
+            </div>
+            <div class="avaliacoesprofile">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-reviews">
+                            {{#each feedback}}
+                                {{#if this}}
+                                    <div class="single-review">
+                                        <div class="review-heading">
+                                            <div><a href="#"><i class="fa fa-user-o"></i> {{this.username}}</a></div>
+                                            <div><a href="#"><i class="fa fa-clock-o"></i> {{this.dateFeedback}} </a></div>
+                                            {{#ifCond this.rating '===' 0}}
+                                                <div class="review-rating pull-right">
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                </div>
+                                            {{/ifCond}}
+                                            {{#ifCond this.rating '===' 1}}
+                                                <div class="review-rating pull-right">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                </div>
+                                            {{/ifCond}}
+                                            {{#ifCond this.rating '===' 2}}
+                                                <div class="review-rating pull-right">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                </div>
+                                            {{/ifCond}}
+                                            {{#ifCond this.rating '===' 3}}
+                                                <div class="review-rating pull-right">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                </div>
+                                            {{/ifCond}}
+                                            {{#ifCond this.rating '===' 4}}
+                                                <div class="review-rating pull-right">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o empty"></i>
+                                                </div>
+                                            {{/ifCond}}
+                                            {{#ifCond this.rating '===' 5}}
+                                                <div class="review-rating pull-right">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                            {{/ifCond}}
+                                        </div>
+                                        <div class="review-body">
+                                            <p>{{this.comentario}}</p>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            {{/each}}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

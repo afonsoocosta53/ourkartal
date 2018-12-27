@@ -1,0 +1,218 @@
+<div class="col-md-9">
+    <div class="page-wrapper chiller-theme toggled">
+        <div class="section-title2">
+            <h2 class="title">Definições</h2>
+        </div>
+        <main class="page-content2">
+
+            <div class="CPaseguir definicoes100">
+                <div class="row">
+                    <form class="form-horizontal" action="/user/editUser" nctype="multipart/form-data" method="post">
+                        <fieldset>
+                            <div class=" form-group col-md-12">
+                                <legend class="legendaalteracaodefinicoes">Informação pessoal</legend>
+                            </div>
+
+
+                            <div class="clearfix visible-md visible-lg"></div>
+                            <!-- ANUNCIAR PRODUTO -->
+                            <!-- SRIPT para limitar número de caracteres -->
+                            <script type="text/javascript" src="js/jquery.limiteCaracteres.js"></script>
+                            <script type="text/javascript">
+                                $(function() {
+                                    function limitaCaracteres(textarea, counter, limit) {
+                                        $('.' + counter).text(limit + ' Caracteres restantes');
+                                        var left;
+                                        $('.' + textarea).on('keyup', function(e) {
+                                            var qtdCaracteres = $(this).val().length;
+                                            left = limit - qtdCaracteres;
+                                            if (left <= 0) {
+                                                left = 0;
+                                                var textoAtual = $(this).val();
+                                                var novoTexto = '';
+                                                for (var n = 0; n < limit; n++) {
+                                                    novoTexto += textoAtual[n];
+                                                }
+                                                $(this).val(novoTexto);
+                                            }
+                                            $('.' + counter).text(left + ' restantes');
+                                        });
+                                    }
+                                    limitaCaracteres('anuncio', 'count3', 50);
+                                    limitaCaracteres('inserirmorada', 'count4', 200);
+                                });
+                            </script>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Alterar Primeiro Nome</label>
+                                <div class="col-md-7">
+                                    <input type=text placeholder="Insira o seu primeiro nome" name="primeiro_nome" value="{{user.name}}" class="form-control input-md anuncio">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Alterar Ultimo Nome</label>
+                                <div class="col-md-7">
+                                    <input type=text name="last_name" placeholder="Insira o seu ultimo nome" value="{{user.lastName}}" class="form-control input-md anuncio">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Alterar palavra passe</label>
+                                <div class="col-md-7">
+                                    <input type="password" name="password" placeholder="Insira uma password" class="form-control input-md anuncio" required="">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Confirmar palavra passe</label>
+                                <div class="col-md-7">
+                                    <input type="password" name="password2" placeholder="Confirme a password" class="form-control input-md anuncio" required="">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Alterar Email</label>
+                                <div class="col-md-7">
+                                    <input type=email name="email" placeholder="Insira um email" value="{{user.email}}" class="form-control input-md anuncio">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Alterar Telemovel</label>
+                                <div class="col-md-3 col-lg-3">
+                                    <input type=text maxlength="9" name="phone" placeholder="Insira o seu ultimo nome" value="{{user.phone}}" class="form-control input-md anuncio">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 legendamoradas">
+                                <legend class="legendaalteracaodefinicoes">Moradas</legend>
+                            </div>
+                            <!-- DESCRIÇÃO PRODUTO -->
+                            <div class="form-group moradausers">
+                                <label class="col-md-5 control-label">Morada</label>
+                                <div class="col-md-7">
+                                    <textarea id="inserirmorada" name="address" placeholder="Insira uma morada" class="form-control input-md descricaoproduto">{{user.address}}</textarea>
+                                    <span class="count4"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Código-Postal</label>
+                                <div class="col-md-7">
+                                    <input type="text" name="postalCode" maxlength="8" placeholder="Insira um codigo postal" value="{{user.postalCode}}" class="form-control input-md anuncio">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">Cidade</label>
+                                <div class="col-md-3">
+                                    <select name="country" id="cidade" value="{{user.country}}" class="form-control input-md anuncio">
+                                    <option value="null">Escolha uma cidade</option>
+            				        <option value="aveiro">Aveiro</option>
+                                    <option value="beja">Beja</option>
+                                    <option value="braga">Braga</option>
+                                    <option value="bragança">Bragança</option>
+                                    <option value="castelo branco">Castelo Branco</option>
+                                    <option value="coimbra">Coimbra</option>
+                                    <option value="evora">Evora</option>
+                                    <option value="faro">Faro</option>
+                                    <option value="guarda">Guarda</option>
+                                    <option value="leiria">Leiria</option>
+                                    <option value="lisboa">Lisboa</option>
+                                    <option value="portalegre">Portalegre</option>
+                                    <option value="porto">Porto</option>
+                                    <option value="santarem">Santarem</option>
+                                    <option value="setubal">Setubal</option>
+                                    <option value="viana do castelo">Viana do Castelo</option>
+                                    <option value="vila real">Vila Real</option>
+                                    <option value="viseu">Viseu</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group" id="morada_diferente">
+                                <label class="col-md-5 control-label">Utilizar morada diferente</label>
+                                <div class="col-md-7">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" id="morada_entrega" style="display: none" value="1">
+                                <label class="col-md-5 control-label">Morada de entrega</label>
+                                <div class="col-md-7">
+                                    <textarea id="inserirmorada" name="address2" placeholder="Insira uma morada" class="form-control input-md descricaoproduto">{{user.address2}}</textarea>
+                                    <span class="count4"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" id="codigo_entrega" style="display: none">
+                                <label class="col-md-5 control-label">Código-Postal</label>
+                                <div class="col-md-7">
+                                    <input type="tel" maxlength="8" value="{{user.postalCode2}}" name="postalCode2" placeholder="Insira um codigo postal" class="form-control input-md anuncio">
+                                    <span class="count3"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="cidade_entrega" style="display: none">
+                                <label class="col-md-5 control-label">Cidade</label>
+                                <div class="col-md-3">
+                                    <select name="country2" value="{{user.country2}}" id="cidade" class="form-control input-md anuncio">
+                                    <option value="null">Escolha uma cidade</option>
+            				        <option value="aveiro">Aveiro</option>
+                                    <option value="beja">Beja</option>
+                                    <option value="braga">Braga</option>
+                                    <option value="bragança">Bragança</option>
+                                    <option value="castelo branco">Castelo Branco</option>
+                                    <option value="coimbra">Coimbra</option>
+                                    <option value="evora">Evora</option>
+                                    <option value="faro">Faro</option>
+                                    <option value="guarda">Guarda</option>
+                                    <option value="leiria">Leiria</option>
+                                    <option value="lisboa">Lisboa</option>
+                                    <option value="portalegre">Portalegre</option>
+                                    <option value="porto">Porto</option>
+                                    <option value="santarem">Santarem</option>
+                                    <option value="setubal">Setubal</option>
+                                    <option value="viana do castelo">Viana do Castelo</option>
+                                    <option value="vila real">Vila Real</option>
+                                    <option value="viseu">Viseu</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button id="submit" name="submit" type="submit" class="gravardefinicao">Gravar</button>
+                                        <button id="reset" name="reset" type="reset" class="botaocancelar">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</div>
+</div>
+<input id="input_teste" value="1" style="display: none"></input>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#morada_diferente").click(function() {
+            if ($("#input_teste").val() === "1") {
+                $("#morada_entrega").show();
+                $("#codigo_entrega").show();
+                $("#cidade_entrega").show();
+                $("#input_teste").val("2");
+            }
+            else {
+                $("#morada_entrega").hide();
+                $("#codigo_entrega").hide();
+                $("#cidade_entrega").hide();
+                $("#input_teste").val("1");
+            }
+        });
+    });
+</script>

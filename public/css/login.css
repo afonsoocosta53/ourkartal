@@ -1,0 +1,153 @@
+.bodymm {
+    padding-top: 90px;
+}
+
+.backhome {
+    margin: 5px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.panel-login {
+	border-color: #ccc;
+    background-color: #F8F8F8;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    margin-top: 30px;
+    margin-bottom: 200px;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	text-align:center;
+    background-color: #F8F8F8;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #282828;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #D4AF37;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #282828;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #282828;
+    
+}
+
+#login-form .lembrarpass {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#login-form .form-control {
+    margin-top: 15px;
+}
+
+
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #D4AF37;
+	border-color: #D4AF37;
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #282828;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #a17f1a;
+}
+
+.btn-register {
+	background-color: #282828;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #282828;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #D4AF37;
+	border-color: #D4AF37;
+}
+
+.btn-cancelar {
+	background-color: #282828;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #282828;
+}
+.btn-cancelar:hover,
+.btn-cancelar:focus {
+	color: #fff;
+	background-color: darkred;
+	border-color: darkred;
+}
+
+.logoLogin {
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: -30px;
+width: 210px;
+    
+}
+

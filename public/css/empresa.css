@@ -1,0 +1,81 @@
+.quemsomos1 {
+
+    width: 600px;
+    padding: 25px;
+    text-align: center;
+    margin: 0 auto;
+
+
+}
+
+.quem {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+
+}
+
+.quemsomos {
+    text-align: center;
+}
+
+
+
+.objetivo {
+    text-align: center;
+}
+
+
+
+.card >img {
+    display: block;
+    width: 10%;
+    height: 100%;
+}
+
+
+
+.emprego {
+    background: rgb(246, 246, 246);
+    width: 700px;
+    border: 2px solid rgb(200, 200, 200);
+    padding: 25px;
+    margin: 25px;
+    text-align: center;
+    margin: 0 auto;
+    height:1150px;
+    margin-bottom: 30px;
+}
+
+
+
+
+.imagem1 {
+    display: block;
+    width: 100px;
+    height: auto;
+
+}
+
+.barra {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 700px;
+    margin-bottom: 30px;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    margin-left: -30px;
+}
+
+.titulo {
+    color: grey;
+    font-size: 18px;
+}

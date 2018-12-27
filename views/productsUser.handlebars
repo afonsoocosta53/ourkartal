@@ -1,0 +1,970 @@
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- ASIDE -->
+            <div id="aside" class="col-md-3">
+                <!-- aside widget -->
+                {{#if filtros}}
+                    <div class="aside">
+                        <h3 class="aside-title">Filtros Aplicados:</h3>
+                        {{#ifCond categoriaselecionada '===' "todas"}}
+                        {{else}}
+                        {{#ifCond subcategoriafiltro '===' "active"}}
+                            <ul class="filter-list">
+                                <li><span class="text-uppercase">Subcategoria:</span></li>
+                                <br>
+                                <li><a id="categoria_ativada">{{subcategoria}}</a></li>
+                            </ul>
+                        {{/ifCond}}
+                        {{/ifCond}}
+                        {{#ifCond negociavel '===' "active"}}
+                            <ul class="filter-list" id="negociavel">
+                                <li><span class="text-uppercase">negociável:</span></li>
+                                <br>
+                                <li><a id="negociavel_sim">{{negociavel_tipo}}</a></li>
+                            </ul>
+                        {{/ifCond}}
+                        {{#ifCond preco '===' "active"}}
+                            <ul class="filter-list">
+                                <li><span class="text-uppercase">Preço:</span></li>
+                                <br>
+                                <li><a href="#">MIN: {{preco_de}}</a></li>
+                                <li><a href="#">MAX: {{preco_ate}}</a></li>
+                            </ul>
+                        {{/ifCond}}
+                        {{#ifCond local '===' "active"}}
+                            <ul class="filter-list" id="loc_filter" style="display:show">
+                                <li><span class="text-uppercase">Localização:</span></li>
+                                <br>
+                                <li id="localizacao_filter"><a>{{localizacao}}</a></li>
+                            </ul>
+                        {{/ifCond}}
+                        {{#ifCond rating '===' "active"}}
+                            <ul class="filter-list">
+                                <li><span class="text-uppercase">Classificação Vendedor:</span></li>
+                                <br>
+                                <li><a id="classificacao_ativada">{{classificacao}}</a></li>
+                            </ul>
+                        {{/ifCond}}
+                        <button id="limpar_filtros" class="primary-btn">Limpar filtros</button>
+                    </div>
+                {{/if}}
+                <!-- /aside widget -->
+                {{#ifCond subcategoriafiltro '===' "active"}}
+                    {{else}}
+                        {{#ifCond categoria_selecionada '===' "bebes"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=calcado">Calçado</a></li>
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=roupa">Roupa</a></li>
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=dormir">Dormir</a></li>
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=divertimento">Divertimento</a></li>
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=refeicao">Refeição</a></li>
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=seguranca">Segurança</a></li>
+                                    <li><a href="/products/1?categoria=bebes&subcategoria=passeio">Passeio</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "livros"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=livros&subcategoria=universitarios">Universitários e Académicos</a></li>
+                                    <li><a href="/products/1?categoria=livros&subcategoria=didaticos">Didáticos e Escolares</a></li>
+                                    <li><a href="/products/1?categoria=livros&subcategoria=infantis">Infantis</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "telemoveis"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=telemoveis&subcategoria=telemoveis">Telemóveis</a></li>
+                                    <li><a href="/products/1?categoria=telemoveis&subcategoria=acessorios">Acessórios</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "eletronica"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=eletronica&subcategoria=camaras">Camaras fotográficas</a></li>
+                                    <li><a href="/products/1?categoria=eletronica&subcategoria=televisoes">Televisões</a></li>
+                                    <li><a href="/products/1?categoria=eletronica&subcategoria=acessorios">Acessórios</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "informatica"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=monitores">Monitores</a></li>
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=impressoras">Impressoras</a></li>
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=calculadoras">Calculadoras</a></li>
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=tablets">Tablets</a></li>
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=computadores fixos">Computadores Fixos</a></li>
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=portateis">Portáteis</a></li>
+                                    <li><a href="/products/1?categoria=informatica&subcategoria=acessorios">Acessórios</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "jogos"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=jogos&subcategoria=playstation 4">PlayStation 4</a></li>
+                                    <li><a href="/products/1?categoria=jogos&subcategoria=xbox one">Xbox One</a></li>
+                                    <li><a href="/products/1?categoria=jogos&subcategoria=wii u">Wii U</a></li>
+                                    <li><a href="/products/1?categoria=jogos&subcategoria=jogos computador">Computador</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "moda"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=moda&subcategoria=roupa">Roupa</a></li>
+                                    <li><a href="/products/1?categoria=moda&subcategoria=calcado">Calçado</a></li>
+                                    <li><a href="/products/1?categoria=moda&subcategoria=joias">Joias, Relógios e Bijuterias</a></li>
+                                    <li><a href="/products/1?categoria=moda&subcategoria=malas">Malas e acessórios</a></li>
+                                    <li><a href="/products/1?categoria=moda&subcategoria=beleza">Saúde e beleza</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "casa"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=casa&subcategoria=eletrodomesticos">Eletrodomésticos</a></li>
+                                    <li><a href="/products/1?categoria=casa&subcategoria=moveis">Móveis</a></li>
+                                    <li><a href="/products/1?categoria=casa&subcategoria=jardim">Jardim e Bricolage</a></li>
+                                    <li><a href="/products/1?categoria=casa&subcategoria=decoracao">Decoração</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "equipamentos"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=equipamentos&subcategoria=ferramentas eletricas">Ferramentas Eletricas</a></li>
+                                    <li><a href="/products/1?categoria=equipamentos&subcategoria=ferramentas manuais">Ferramentas Manuais</a></li>
+                                    <li><a href="/products/1?categoria=equipamentos&subcategoria=protecao e seguranca">Protecao e Seguranca</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "musica"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=musica&subcategoria=instrumentos musicais e equipamentos">Instrumentos Musicais e Equipamentos</a></li>
+                                    <li><a href="/products/1?categoria=musica&subcategoria=musicas gravadas">Musicas Gravadas</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                        <!-- /aside widget -->
+                        {{#ifCond categoria_selecionada '===' "desporto"}}
+                            <div class="aside">
+                                <h3 class="aside-title">Subcategorias:</h3>
+                                <ul class="list-links">
+                                    <li><a href="/products/1?categoria=desporto&subcategoria=exercicio e fitness">Exercicio e Fitness</a></li>
+                                    <li><a href="/products/1?categoria=desporto&subcategoria=outdoor">Outdoor</a></li>
+                                    <li><a href="/products/1?categoria=desporto&subcategoria=equipa">Equipa</a></li>
+                                    <li><a href="/products/1?categoria=desporto&subcategoria=indoor">Indoor</a></li>
+                                </ul>
+                            </div>
+                            {{else}}
+                        {{/ifCond}}
+                {{/ifCond}}
+                <!-- /aside widget -->
+
+                {{#unless preco}}
+                {{/unless}}
+                <!-- aside widget -->
+                <div class="aside">
+                    <h3 class="aside-title">Preço</h3>
+                    <div class="price-teste" id="price-teste2"></div>
+                </div>
+                <!-- aside widget -->
+
+
+                <!-- aside widget -->
+                {{#ifCond negociavel '===' "active"}}
+                    {{else}}
+                        <div class="aside">
+                            <h3 class="aside-title">Negociável:</h3>
+                            <ul class="size-option">
+                                <li id=sim_negociavel_li><a id="sim_negociavel">Sim</a></li>
+                                <li id="nao_negociavel_li"><a id="nao_negociavel">Não</a></li>
+                            </ul>
+                        </div>
+                {{/ifCond}}
+                <!-- /aside widget -->
+
+                <!-- aside widget -->
+                {{#ifCond local '===' "active"}}
+                    {{else}}
+                        <div class="aside">
+                            <h3 class="aside-title">Localização</h3>
+                            <ul class="list-links">
+                                <li id="aveiro"><a>Aveiro</a></li>
+                                <li id="beja"><a>Beja</a></li>
+                                <li id="braga"><a>Braga</a></li>
+                                <li id="braganca"><a>Bragança</a></li>
+                                <li id="castelo_branco"><a>Castelo Branco</a></li>
+                                <li id="coimbra"><a>Coimbra</a></li>
+                                <li id="evora"><a>Evora</a></li>
+                                <li id="faro"><a>Faro</a></li>
+                                <li id="guarda"><a>Guarda</a></li>
+                                <li id="leiria"><a>Leiria</a></li>
+                                <li id="lisboa"><a>Lisboa</a></li>
+                                <li id="portalegre"><a>Portalegre</a></li>
+                                <li id="porto"><a>Porto</a></li>
+                                <li id="santarem"><a>Santarem</a></li>
+                                <li id="setubal"><a>Setubal</a></li>
+                                <li id="viana_castelo"><a>Viana do Castelo</a></li>
+                                <li id="vila_real"><a>Vila Real</a></li>
+                                <li id="viseu"><a>Viseu</a></li>
+                            </ul>
+                        </div>
+                {{/ifCond}}
+                <!-- /aside widget -->
+
+                {{#unless rating}}
+                    <!-- aside widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Classificação Vendedor</h3>
+                        <div class="input-rating">
+                            <div class="stars">
+                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                            </div>
+                        </div>
+                    </div>
+                {{/unless}}
+                <!-- /aside widget -->
+            </div>
+
+            <!-- /ASIDE -->
+
+            <!-- MAIN -->
+            <div id="main" class="col-md-9">
+                <!-- store top filter -->
+                <div class="store-filter clearfix">
+                    <div class="pull-left">
+                        <span class="">{{numero_produtos}}</span>
+                        <span class="">resultados para <b>{{categoria_selecionada}}</b></span>
+                    </div>
+                    <div class="pull-right">
+                        <div class="sort-filter">
+                            <span class="text-uppercase">Ordenar por: </span>
+                            <select class="input" id="order_by" name="order_by">
+                                        <option value="null">{{sortfiltro}}</option>
+                                        {{#ifCond sortfiltro '===' "Relevancia"}}
+                                        <option value="mais_barato">Mais Barato</option>
+										<option value="mais_caro">Mais Caro</option>
+                                        {{else}}
+                                        {{/ifCond}}
+                                        {{#ifCond sortfiltro '===' "Mais Caro"}}
+                                        <option value="relevancia">Relevância</option>
+                                        <option value="mais_barato">Mais Barato</option>
+                                        {{else}}
+                                        {{/ifCond}}
+                                        {{#ifCond sortfiltro '===' "Mais Barato"}}
+                                        <option value="relevancia">Relevância</option>
+										<option value="mais_caro">Mais Caro</option>
+                                        {{else}}
+                                        {{/ifCond}}
+										
+										
+									</select>
+                        </div>
+                        <div class="row-filter">
+                            <a id="todos-grelha" name="todos-grelha" class="active"><i class="fa fa-th-large"></i></a>
+                            <a id="todos-lista" name="todos-lista"><i class="fa fa-bars"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /store top filter -->
+                <div>
+                    <!-- STORE -->
+                    <div id="lista-full-products-grelha" name="lista-full-products-grelha" style="display:show">
+                        <div id="store" name="store">
+                            <!-- row -->
+                            <div class="row">
+                                <div class="clearfix visible-md visible-lg"></div>
+                                <div class="clearfix visible-sm visible-xs"></div>
+
+                                {{#each primeira_fila}}
+                                    {{#if this}}
+                                        <!-- Product Single -->
+                                        <div class="col-md-3 col-sm-6 col-xs-6">
+                                            <div class="product product-single">
+                                                <div class="product-thumb">
+                                                    <img src="../../img/product01.jpg" alt="">
+                                                </div>
+                                                <div class="product-body-p">
+                                                    <i class="fa fa-viacoin"></i>
+                                                    <h3 class="product-price">{{this.preco}} </h3>
+                                                    <h2 class="product-name"><a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a></h2>
+                                                    <div class="product-btns-p">
+                                                        <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> <a href="/products/add-to-cart/{{this.id_produto}}">CARRINHO</a></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                {{/each}}
+                                <!-- /Product Single -->
+
+
+                            </div>
+                            <div class="row">
+                                <div class="clearfix visible-md visible-lg"></div>
+                                <div class="clearfix visible-sm visible-xs"></div>
+
+                                {{#each segunda_fila}}
+                                    {{#if this}}
+                                        <!-- Product Single -->
+                                        <div class="col-md-3 col-sm-6 col-xs-6">
+                                            <div class="product product-single">
+                                                <div class="product-thumb">
+                                                    <img src="../../img/product01.jpg" alt="">
+                                                </div>
+                                                <div class="product-body-p">
+                                                    <i class="fa fa-viacoin"></i>
+                                                    <h3 class="product-price">{{this.preco}} </h3>
+                                                    <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                                    <div class="product-btns-p">
+                                                        <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                {{/each}}
+                                <!-- /Product Single -->
+
+                            </div>
+                            <!-- /Product Single -->
+
+                            <div class="row">
+                                <div class="clearfix visible-md visible-lg"></div>
+                                <div class="clearfix visible-sm visible-xs"></div>
+                                {{#each terceira_fila}}
+                                    {{#if this}}
+                                        <!-- Product Single -->
+                                        <div class="col-md-3 col-sm-6 col-xs-6">
+                                            <div class="product product-single">
+                                                <div class="product-thumb">
+                                                    <img src="../../img/product01.jpg" alt="">
+                                                </div>
+                                                <div class="product-body-p">
+                                                    <i class="fa fa-viacoin"></i>
+                                                    <h3 class="product-price">{{this.preco}} </h3>
+                                                    <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                                    <div class="product-btns-p">
+                                                        <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                {{/each}}
+                                <!-- /Product Single -->
+                            </div>
+                            <!-- /row -->
+                        </div>
+                        <!-- /STORE -->
+                    </div>
+                </div>
+                <div id="lista-full-products-linha" name="lista-full-products-linha" style="display:none">
+                    <!-- STORE -->
+                    <div id="store">
+                        <!-- row -->
+                        <div class="row">
+                            {{#each primeira_fila}}
+                                {{#if this}}
+                                    <!-- Product Single -->
+                                    <div class="col-md-12 col-sm-6 col-xs-6">
+                                        <div class="product product-single-linha">
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-thumb ">
+                                                    <img src="../../img/product01.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-body-p">
+                                                    <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                                    <i class="fa fa-viacoin"></i>
+                                                    <h3 class="product-price">{{this.preco}} </h3>
+                                                    <h4 class="classvendedor">Classificação Vendedor<br>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-o empty"></i>
+                                                        </div>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-btns-p">
+                                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i> </button>
+
+                                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>  Carrinho</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="clearfix visible-sm visible-xs"></div>
+                                            <div class="clearfix visible-md visible-lg"></div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                <!-- /Product Single -->
+                            {{/each}}
+
+                            {{#each segunda_fila}}
+                                {{#if this}}
+                                    <!-- Product Single -->
+                                    <div class="col-md-12 col-sm-6 col-xs-6">
+                                        <div class="product product-single-linha">
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-thumb ">
+                                                    <img src="../../img/product01.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-body-p">
+                                                    <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                                    <i class="fa fa-viacoin"></i>
+                                                    <h3 class="product-price">{{this.preco}} </h3>
+                                                    <h4 class="classvendedor">Classificação Vendedor<br>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-o empty"></i>
+                                                        </div>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-btns-p">
+                                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i> </button>
+
+                                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>  Carrinho</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="clearfix visible-sm visible-xs"></div>
+                                            <div class="clearfix visible-md visible-lg"></div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                <!-- /Product Single -->
+                            {{/each}}
+
+                            {{#each terceira_fila}}
+                                {{#if this}}
+                                    <!-- Product Single -->
+                                    <div class="col-md-12 col-sm-6 col-xs-6">
+                                        <div class="product product-single-linha">
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-thumb ">
+                                                    <img src="../../img/product01.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-body-p">
+                                                    <h2 class="product-name"><a href="#">{{this.nome_produto}}</a></h2>
+                                                    <i class="fa fa-viacoin"></i>
+                                                    <h3 class="product-price">{{this.preco}} </h3>
+                                                    <h4 class="classvendedor">Classificação Vendedor<br>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-o empty"></i>
+                                                        </div>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="product-btns-p">
+                                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i> </button>
+
+                                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>  Carrinho</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="clearfix visible-sm visible-xs"></div>
+                                            <div class="clearfix visible-md visible-lg"></div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                <!-- /Product Single -->
+                            {{/each}}
+
+                        </div>
+                        <!-- /row -->
+                    </div>
+                    <!-- /STORE -->
+                </div>
+                <!-- store bottom filter -->
+                <div class="store-filter-bottom clearfix">
+                    <div class="pull-left">
+                        <ul class="store-pages">
+                            <li><span class="text-uppercase">Página:</span></li>
+                            {{#each pages}}
+                                <li class="active"><a href="/products/{{this}}">{{this}}</a></li>
+                            {{/each}}
+                            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <div class="page-filter">
+                            <span class="text-uppercase">Produtos por página:</span>
+                            <select class="input">
+										<option value="0">10</option>
+										<option value="1">20</option>
+										<option value="2">30</option>
+                                        <option value="3">50</option>
+                                        <option value="4">100</option>
+									</select>
+                        </div>
+                    </div>
+                </div>
+                <!-- /store bottom filter -->
+            </div>
+            <!-- /MAIN -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+
+<input id="limiteinferior" value="{{limiteinferior}}" style="display:none">
+<input id="limitesuperior" value="{{limitesuperior}}" style="display:none">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
+
+<script>
+    $(document).ready(function() {
+        /*---------------------------------------------------------------------
+                                LIMPAR FILTROS 
+        *-------------------------------------------------------------------*/
+        $('#limpar_filtros').click(function() {
+            var url = window.location.href;
+            var url1 = url.replace(/&negociavel=([^&]+)*/, "");
+            var url2 = url1.replace(/&cidade=([^&]+)*/, "");
+            var url3 = url2.replace(/&de=([^&]+)*/, "");
+            var url4 = url3.replace(/&ate=([^&]+)*/, "");
+            var url5 = url4.replace(/&subcategoria=([^&]+)*/, "");
+            var url6 = url5.replace(/&cidade=([^&]+)*/, "");
+            var url7 = url6.replace(/&rating=([^&]+)*/, "");
+            window.location = url7;
+        })
+
+        /*---------------------------------------------------------------------
+                                PARTE DA LISTAGEM 
+        *-------------------------------------------------------------------*/
+        $("#todos-lista").click(function() {
+            $("#lista-full-products-grelha").hide();
+            $("#lista-full-products-linha").show();
+            $("#todos-lista").addClass("active");
+            $("#todos-grelha").removeClass("active");
+        });
+        $("#todos-grelha").click(function() {
+            $("#lista-full-products-grelha").show();
+            $("#lista-full-products-linha").hide();
+            $("#todos-grelha").addClass("active");
+            $("#todos-lista").removeClass("active");
+        });
+
+
+        $('#order_by').on('change', function() { // ORDENAR POR MAIS BARATO
+            if ($(this).val() === "mais_barato") {
+                var url = window.location.href;
+                if (url.includes("sort")) {
+                    var url = url.replace(/&sort=([^&]+)*/, "&sort=ascendente");
+                }
+                else {
+                    if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                        var url = url + "?sort=ascendente";
+                    }
+                    else {
+                        var url = url + "&sort=ascendente";
+                    }
+                }
+                window.location = url;
+            }
+        });
+
+        $('#order_by').on('change', function() { // ORDENAR POR RELEVANCIA
+            if ($(this).val() === "relevancia") {
+                var url = window.location.href;
+                if (url.includes("sort")) {
+                    var url = url.replace(/&sort=([^&]+)*/, "");
+                }
+                else {
+                    if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                        var url = url;
+                    }
+                    else {
+                        var url = url;
+                    }
+                }
+                window.location = url;
+            }
+        });
+
+        $('#order_by').on('change', function() { // ORDENAR POR MAIS CARO
+            if ($(this).val() === "mais_caro") {
+                var url = window.location.href;
+                if (url.includes("sort")) {
+                    var url = url.replace(/&sort=([^&]+)*/, "&sort=relevancia");
+                }
+                else {
+                    if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                        var url = url + "?sort=relevancia";
+                    }
+                    else {
+                        var url = url + "&sort=relevancia";
+                    }
+                }
+                window.location = url;
+            }
+        });
+
+        /*---------------------------------------------------------------------
+                                PARTE DO NEGOCIAVEL 
+        *-------------------------------------------------------------------*/
+        $("#negociavel_sim").click(function() {
+            var url = window.location.href;
+            window.location = url.replace(/&negociavel=([^&]+)*/, "");
+        });
+
+        $("#negociavel_nao").click(function() {
+            window.location = url.replace(/&negociavel=([^&]+)*/, "");
+        });
+
+        $("#nao_negociavel").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?negociavel=nao";
+            }
+            else {
+                window.location = url + "&negociavel=nao";
+            }
+        });
+
+        $("#sim_negociavel").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?negociavel=sim";
+            }
+            else {
+                window.location = url + "&negociavel=sim";
+            }
+        });
+
+        /*---------------------------------------------------------------------
+                                PARTE DO RATING 
+        *-------------------------------------------------------------------*/
+        $("#star5").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?rating=5";
+            }
+            else {
+                window.location = url + "&rating=5";
+            }
+        });
+        $("#star4").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?rating=4";
+            }
+            else {
+                window.location = url + "&rating=4";
+            }
+        });
+        $("#star3").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?rating=3";
+            }
+            else {
+                window.location = url + "&rating=3";
+            }
+        });
+        $("#star2").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?rating=2";
+            }
+            else {
+                window.location = url + "&rating=2";
+            }
+        });
+        $("#star1").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?rating=1";
+            }
+            else {
+                window.location = url + "&rating=1";
+            }
+        });
+
+        /*---------------------------------------------------------------------
+                                PARTE DAS CIDADES 
+        *-------------------------------------------------------------------*/
+        $("#aveiro").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=aveiro";
+            }
+            else {
+                window.location = url + "&cidade=aveiro";
+            }
+        });
+        $("#beja").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=beja";
+            }
+            else {
+                window.location = url + "&cidade=beja";
+            }
+        });
+        $("#braga").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=braga";
+            }
+            else {
+                window.location = url + "&cidade=braga";
+            }
+        });
+        $("#braganca").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=braganca";
+            }
+            else {
+                window.location = url + "&cidade=braganca";
+            }
+        });
+        $("#castelo_branco").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=castelo branco";
+            }
+            else {
+                window.location = url + "&cidade=castelo branco";
+            }
+        });
+        $("#coimbra").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=coimbra";
+            }
+            else {
+                window.location = url + "&cidade=coimbra";
+            }
+        });
+        $("#evora").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=evora";
+            }
+            else {
+                window.location = url + "&cidade=evora";
+            }
+        });
+        $("#faro").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=faro";
+            }
+            else {
+                window.location = url + "&cidade=faro";
+            }
+        });
+        $("#guarda").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=guarda";
+            }
+            else {
+                window.location = url + "&cidade=guarda";
+            }
+        });
+        $("#leiria").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=leiria";
+            }
+            else {
+                window.location = url + "&cidade=leiria";
+            }
+        });
+        $("#lisboa").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=lisboa";
+            }
+            else {
+                window.location = url + "&cidade=lisboa";
+            }
+        });
+        $("#portalegre").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=portalegre";
+            }
+            else {
+                window.location = url + "&cidade=portalegre";
+            }
+        });
+        $("#porto").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=porto";
+            }
+            else {
+                window.location = url + "&cidade=porto";
+            }
+        });
+        $("#santarem").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=santarem";
+            }
+            else {
+                window.location = url + "&cidade=santarem";
+            }
+        });
+        $("#setubal").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=setubal";
+            }
+            else {
+                window.location = url + "&cidade=setubal";
+            }
+        });
+        $("#viana_castelo").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=viana do castelo";
+            }
+            else {
+                window.location = url + "&cidade=viana do castelo";
+            }
+        });
+        $("#vila_real").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=vila real";
+            }
+            else {
+                window.location = url + "&cidade=vila real";
+            }
+        });
+        $("#viseu").click(function() {
+            var url = window.location.href;
+            if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                window.location = url + "?cidade=viseu";
+            }
+            else {
+                window.location = url + "&cidade=viseu";
+            }
+        });
+        $("#localizacao_filter").click(function() {
+            var url = window.location.href;
+            window.location = url.replace(/&cidade=([^&]+)*/, "");
+        });
+        $("#categoria_ativada").click(function() {
+            var url = window.location.href;
+            window.location = url.replace(/&subcategoria=([^&]+)*/, "");
+        });
+        $("#classificacao_ativada").click(function() {
+            var url = window.location.href;
+            window.location = url.replace(/&rating=([^&]+)*/, "");
+        });
+        var range = document.getElementById('price-teste2');
+        var limiteinferior = $('#limiteinferior').val();
+        var limitesuperior = $('#limitesuperior').val();
+
+        noUiSlider.create(range, {
+            start: [limiteinferior, limitesuperior],
+            connect: true,
+            range: {
+                'min': parseInt(limiteinferior),
+                'max': parseInt(limitesuperior)
+            },
+            tooltips: true
+        });
+        range.noUiSlider.on('change', function(values, handle) {
+            var url = window.location.href;
+            if (url.includes("de")) {
+                var url = url.replace(/&de=([^&]+)*/, "&de=" + values[0]);
+            }
+            else {
+                if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                    var url = url + "?de=" + values[0] + "&ate=" + values[1];
+                }
+                else {
+                    var url = url + "&de=" + values[0] + "&ate=" + values[1];;
+                }
+            }
+            if (url.includes("ate")) {
+                var url = url.replace(/&ate=([^&]+)*/, "&ate=" + values[1]);
+            }
+            else {
+                if (url === 'https://ourkartal-afonsoocosta53.c9users.io/products/{{currentPage}}') {
+                    url = url + "?ate=" + values[1];
+                }
+                else {
+                    url = url + "&ate=" + values[1];
+                }
+            }
+            window.location = url
+        });
+    });
+</script>

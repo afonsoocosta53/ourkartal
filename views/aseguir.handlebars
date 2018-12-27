@@ -1,0 +1,215 @@
+<div class="col-md-9">
+
+    <div class="page-wrapper chiller-theme toggled">
+
+        <main class="page-content">
+            <div class="store-filter clearfix">
+                <div class="pull-left">
+                    <span class="">{{numero_produtos}}</span>
+                    <span class="">produto(s)</span>
+                </div>
+                <div class="pull-right">
+                    <div class="sort-filter">
+                        <span class="text-uppercase">Ordenar por: </span>
+                        <select class="input" id="order_by" name="order_by">
+                                        <option value="null">{{sortfiltro}}</option>
+                                        {{#ifCond sortfiltro '===' "Relevancia"}}
+                                        <option value="mais_barato">Mais Barato</option>
+										<option value="mais_caro">Mais Caro</option>
+                                        {{else}}
+                                        {{/ifCond}}
+                                        {{#ifCond sortfiltro '===' "Mais Caro"}}
+                                        <option value="relevancia">Relevância</option>
+                                        <option value="mais_barato">Mais Barato</option>
+                                        {{else}}
+                                        {{/ifCond}}
+                                        {{#ifCond sortfiltro '===' "Mais Barato"}}
+                                        <option value="relevancia">Relevância</option>
+										<option value="mais_caro">Mais Caro</option>
+                                        {{else}}
+                                        {{/ifCond}}
+										
+										
+									</select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="CPaseguir">
+                <!-- STORE -->
+                <div id="store">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- Product Single -->
+                        {{#each primeira_fila}} {{#if this}}
+                        <!-- Product Single -->
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <div class="product product-single">
+                                <img src="../../img/{{this.imagem}}" alt="" width="174" height="230">
+                                <div class="product-thumb">
+                                </div>
+                                <div class="product-body-p">
+                                    <i class="fa fa-viacoin"></i>
+                                    <h3 class="product-price">{{this.preco}} </h3>
+                                    <h2 class="product-name"><a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a></h2>
+                                    <div class="product-btns-p">
+                                        <a href="/products/remover-wishlist/{{this.id_wishlist}}"> <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button></a>
+                                        <button class="main-btn add-to-cart"><i class="fa fa-shopping-cart"></i> <a href="/products/add-to-cart/{{this.id_produto}}">CARRINHO</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}} {{/each}}
+                        <!-- /Product Single -->
+                        <div class="clearfix visible-md visible-lg"></div>
+                        <div class="clearfix visible-sm visible-xs"></div>
+                    </div>
+                    <div class="row">
+                        <div class="clearfix visible-md visible-lg"></div>
+                        <div class="clearfix visible-sm visible-xs"></div>
+
+                        {{#each segunda_fila}} {{#if this}}
+                        <!-- Product Single -->
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <div class="product product-single">
+                                <div class="product-thumb">
+                                    <img src="../../img/{{this.imagem}}" alt="" width="174" height="230">
+                                </div>
+                                <div class="product-body-p">
+                                    <i class="fa fa-viacoin"></i>
+                                    <h3 class="product-price">{{this.preco}} </h3>
+                                    <h2 class="product-name"><a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a></h2>
+                                    <div class="product-btns-p">
+                                        <a href="/products/remover-wishlist/{{this.id_wishlist}}"> <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button></a>
+                                        <button class="main-btn add-to-cart"><i class="fa fa-shopping-cart"></i> <a href="/products/add-to-cart/{{this.id_produto}}">CARRINHO</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}} {{/each}}
+                        <!-- /Product Single -->
+
+                    </div>
+                    <div class="row">
+                        <div class="clearfix visible-md visible-lg"></div>
+                        <div class="clearfix visible-sm visible-xs"></div>
+                        {{#each terceira_fila}} {{#if this}}
+                        <!-- Product Single -->
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <div class="product product-single">
+                                <div class="product-thumb">
+                                    <img src="../../img/{{this.imagem}}" alt="" width="174" height="230">
+                                </div>
+                                <div class="product-body-p">
+                                    <i class="fa fa-viacoin"></i>
+                                    <h3 class="product-price">{{this.preco}} </h3>
+                                    <h2 class="product-name"><a href="/product/{{this.id_produto}}">{{this.nome_produto}}</a></h2>
+                                    <div class="product-btns-p">
+                                        <a href="/products/remover-wishlist/{{this.id_wishlist}}"> <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button></a>
+                                        <button class="mais-btn add-to-cart"><i class="fa fa-shopping-cart"></i> <a href="/products/add-to-cart/{{this.id_produto}}">CARRINHO</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}} {{/each}}
+                        <!-- /Product Single -->
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /STORE -->
+                <div class="store-filter-bottom clearfix">
+                    <div class="pull-left">
+                        <ul class="store-pages">
+                            <li><span class="text-uppercase">Página:</span></li>
+                            {{#each pages}}
+                            <li class="active"><a href="/products/{{this}}">{{this}}</a></li>
+                            {{/each}}
+                            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <div class="page-filter">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+
+
+    </div>
+
+</div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#order_by').on('change', function() { // ORDENAR POR MAIS BARATO
+            if ($(this).val() === "mais_barato") {
+                var url = window.location.href;
+                var url2 = window.location.search;
+                if (url.includes("sort")) {
+                    var url = url.replace(url2, "?sort=ascendente");
+
+                    alert(url2)
+                }
+                else {
+                    if (url === 'https://ourkartal-afonsoocosta53.c9users.io/user/aseguir/{{currentPage}}') {
+                        var url = url + "?sort=ascendente";
+                    }
+                    else {
+                        var url = url + "&sort=ascendente";
+                    }
+                }
+                window.location = url;
+            }
+        });
+
+        $('#order_by').on('change', function() { // ORDENAR POR RELEVANCIA
+            if ($(this).val() === "relevancia") {
+                var url = window.location.href;
+                var url2 = window.location.search;
+                if (url.includes("sort")) {
+                    var url = url.replace(url2, "");
+
+                    alert(url2)
+                }
+                else {
+                    if (url === 'https://ourkartal-afonsoocosta53.c9users.io/user/aseguir/{{currentPage}}') {
+                        var url = url;
+                    }
+                    else {
+                        var url = url;
+                    }
+                }
+                window.location = url;
+            }
+        });
+
+        $('#order_by').on('change', function() { // ORDENAR POR MAIS CARO
+            if ($(this).val() === "mais_caro") {
+                var url = window.location.href;
+                var url2 = window.location.search;
+                if (url.includes("sort")) {
+                    var url = url.replace(url2, "?sort=descendente");
+                    alert(url2)
+                }
+                else {
+                    if (url === 'https://ourkartal-afonsoocosta53.c9users.io/user/aseguir/{{currentPage}}') {
+                        var url = url + "?sort=descendente";
+                    }
+                    else {
+                        var url = url + "&sort=descendente";
+                    }
+                }
+                window.location = url;
+            }
+        });
+    });
+</script>
